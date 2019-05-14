@@ -1,0 +1,6 @@
+[submodule "Lesson1/ListLesson"]
+	path = Lesson1/ListLesson
+	url = git@github.com:smay1613/ListLesson.git
+[submodule "Lesson1/VectorLesson"]
+	path = Lesson1/VectorLesson
+	url = git@github.com:smay1613/VectorLesson.git
