@@ -2,8 +2,15 @@
 #include <iostream>
 #include <string> 
 #include <cmath>
+#include <forward_list>
 
 void print(const std::vector<int>& value) {
+    for (const int& val : value) {
+        std::cout << val << std::endl;
+    }
+}
+
+void print(const std::forward_list<int>& value) {
     for (const int& val : value) {
         std::cout << val << std::endl;
     }
@@ -32,6 +39,14 @@ std::string functionNX(const int & N, const int & X) {
     return value;
 }
 
+std::forward_list<int> reverse(const std::forward_list<int> & list) {
+    std::forward_list<int> value;
+    for (const int& val : list) {
+         value.push_front(val);
+    }
+    return value;
+}
+
 int main () {
     // *** task 1 ***
     std::vector<int> v1 { 1, 2, 3 };
@@ -42,6 +57,11 @@ int main () {
     // *** task 2 ***
     std::cout << functionNX(10, 5) << std::endl;
     std::cout << functionNX(19, 4) << std::endl;
+    
+    // *** task 3 ***
+    std::forward_list<int> list { 10, 11, 12, 13, 14, 15 };
+    std::forward_list<int> listR = reverse(list);
+    print(listR);
     
     std::cout << "*** END ***" << std::endl;
     return 0;
