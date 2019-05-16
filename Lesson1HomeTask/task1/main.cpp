@@ -3,109 +3,110 @@
 #include <string>
 #include <algorithm>
 
-template <typename T>
-void print_vector (std::string&& vec_name, const std::vector<T>& vec)
+using my_vec_t = std::vector<int>;
+
+my_vec_t my_merge1 (const my_vec_t& v1, const my_vec_t& v2)
 {
-    std::cout << vec_name << ": ";
-    for (const auto& el : vec)
-        std::cout << el << ", ";
-    std::cout << std::endl;
+    my_vec_t result {v1};
+    const auto  result_size = v1.size() + v2.size();
+    result.resize(result_size);
+
+    auto it = std::next (result.begin(), v1.size());
+
+    std::copy (v2.begin(), v2.end(), it);
+    return result;
 }
 
-
-template <typename T>
-std::vector<T> my_merge (const std::vector<T>& v1, const std::vector<T>& v2)
+my_vec_t my_merge2 (const my_vec_t& v1, const my_vec_t& v2)
 {
-//    //------------------------------------------------------------------------------
-//    // Way1
-//    std::vector<T> result {v1};
-//    const auto  result_size = v1.size() + v2.size();
-//    result.resize(result_size);
-
-//    auto it = std::next (result.begin(), v1.size());
-
-//    std::copy (v2.begin(), v2.end(), it);
-
-    //------------------------------------------------------------------------------
-    // Way 2
-    std::vector<T> result {v1};
+    my_vec_t result {v1};
     for (const auto& el : v2)
         result.push_back (el);
+    return result;
+}
 
-//    //------------------------------------------------------------------------------
-//    // Way 3
-//    std::vector<T> v1_copy = v1;
-//    std::vector<T> v2_copy = v2;
+my_vec_t my_merge3 (const my_vec_t& v1, const my_vec_t& v2)
+{
+    my_vec_t v1_copy = v1;
+    my_vec_t v2_copy = v2;
 
-//    std::sort (v1_copy.begin(), v1_copy.end());
-//    std::sort (v2_copy.begin(), v2_copy.end());
+    std::sort (v1_copy.begin(), v1_copy.end());
+    std::sort (v2_copy.begin(), v2_copy.end());
 
-//    std::vector<T> result;
+    my_vec_t result;
 
-//    result.resize (v1.size() + v2.size());
+    result.resize (v1.size() + v2.size());
 
-//    std::merge (v1_copy.begin(), v1_copy.end(),
-//                v2_copy.begin(), v2_copy.end(),
-//                result.begin());
+    std::merge (v1_copy.begin(), v1_copy.end(),
+                v2_copy.begin(), v2_copy.end(),
+                result.begin());
 
     return result;
 }
 
 
+void print_vector (const my_vec_t& vec)
+{
+    for (const auto& el : vec)
+        std::cout << el << "  ";
+}
+
+void run_test (const my_vec_t& v1, const my_vec_t& v2, my_vec_t (*merge_func)(const my_vec_t& v1, const my_vec_t& v2))
+{
+        std::cout << "Running test: " ;
+        std::cout << std::endl;
+
+        std::cout << "First vector: ";
+        print_vector(v1);
+        std::cout << std::endl;
+
+        std::cout << "Second vector: ";
+        print_vector(v2);
+        std::cout << std::endl;
+
+        auto result_v = merge_func(v1, v2);
+
+        std::cout << "Result vector: ";
+        print_vector(result_v);
+        std::cout << std::endl;
+
+        std::cout << std::endl;
+}
+
+
 int main()
 {
-    using my_vec_t = std::vector<int>;
+    my_vec_t v1 {0, 1, 2, 3, 4};
+    my_vec_t v2 {5, 6, 7, 8, 9};
+    my_vec_t v3 {550, 231, 1232, 45233, 12344};
+    my_vec_t v4 {7565, 6234, 7756};
 
-    std::cout << "---------------------------" << std::endl;
-    std::cout << "Test1" << std::endl;
-    {
-        my_vec_t vec1 {0, 1, 2, 3, 4},
-                 vec2 {5, 6, 7, 8, 9};
 
-        my_vec_t result = my_merge (vec1, vec2);
+    std::cout << "---------------------------------------------------" << std::endl;
+    std::cout << "Tests with 'my_merge1' function" << std::endl;
+    auto merge_f = my_merge1;
+    run_test (v1, v2, merge_f);
+    run_test ({}, v2, merge_f);
+    run_test (v1, {}, merge_f);
+    run_test (v3, v4, merge_f);
 
-        print_vector ("vec1", vec1);
-        print_vector ("vec2", vec2);
-        print_vector ("resutl", result);
-    }
 
-    std::cout << "---------------------------" << std::endl;
-    std::cout << "Test2" << std::endl;
-    {
-        my_vec_t vec1 {},
-                 vec2 {5, 6, 7, 8, 9};
+    std::cout << "---------------------------------------------------" << std::endl;
+    std::cout << "Tests with 'my_merge2' function" << std::endl;
+    merge_f = my_merge2;
+    run_test (v1, v2, merge_f);
+    run_test ({}, v2, merge_f);
+    run_test (v1, {}, merge_f);
+    run_test (v3, v4, merge_f);
 
-        my_vec_t result = my_merge (vec1, vec2);
 
-        print_vector ("vec1", vec1);
-        print_vector ("vec2", vec2);
-        print_vector ("resutl", result);
-    }
+    std::cout << "---------------------------------------------------" << std::endl;
+    std::cout << "Tests with 'my_merge3' function" << std::endl;
+    merge_f = my_merge3;
+    run_test (v1, v2, merge_f);
+    run_test ({}, v2, merge_f);
+    run_test (v1, {}, merge_f);
+    run_test (v3, v4, merge_f);
 
-    std::cout << "---------------------------" << std::endl;
-    std::cout << "Test3" << std::endl;
-    {
-        my_vec_t vec1 {0, 1, 2, 3, 4},
-                 vec2 {};
-
-        my_vec_t result = my_merge (vec1, vec2);
-
-        print_vector ("vec1", vec1);
-        print_vector ("vec2", vec2);
-        print_vector ("resutl", result);
-    }
-
-    std::cout << "---------------------------" << std::endl;
-    std::cout << "Test4" << std::endl;
-    {
-        my_vec_t vec1 { 550,  231, 1232, 45233, 12344},
-                 vec2 {7565, 6234, 7756};
-
-        my_vec_t result = my_merge (vec1, vec2);
-
-        print_vector ("vec1", vec1);
-        print_vector ("vec2", vec2);
-        print_vector ("resutl", result);
-    }
     return 0;
 }
