@@ -18,7 +18,7 @@ uint64_t make_specific_number (uint32_t base, uint32_t power)
         return 0;
     }
 
-    uint64_t result = 0;
+    uint64_t result {0};
 
     for (auto& el : values)
     {
