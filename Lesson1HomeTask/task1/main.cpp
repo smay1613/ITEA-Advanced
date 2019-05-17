@@ -20,15 +20,19 @@ my_vec_t my_merge1 (const my_vec_t& v1, const my_vec_t& v2)
 my_vec_t my_merge2 (const my_vec_t& v1, const my_vec_t& v2)
 {
     my_vec_t result {v1};
+    result.reserve (v1.size() + v2.size());
+
     for (const auto& el : v2)
+    {
         result.push_back (el);
+    }
     return result;
 }
 
 my_vec_t my_merge3 (const my_vec_t& v1, const my_vec_t& v2)
 {
-    my_vec_t v1_copy = v1;
-    my_vec_t v2_copy = v2;
+    my_vec_t v1_copy {v1};
+    my_vec_t v2_copy {v2};
 
     std::sort (v1_copy.begin(), v1_copy.end());
     std::sort (v2_copy.begin(), v2_copy.end());
@@ -48,7 +52,9 @@ my_vec_t my_merge3 (const my_vec_t& v1, const my_vec_t& v2)
 void print_vector (const my_vec_t& vec)
 {
     for (const auto& el : vec)
+    {
         std::cout << el << "  ";
+    }
 }
 
 void run_test (const my_vec_t& v1, const my_vec_t& v2, my_vec_t (*merge_func)(const my_vec_t& v1, const my_vec_t& v2))
@@ -64,7 +70,7 @@ void run_test (const my_vec_t& v1, const my_vec_t& v2, my_vec_t (*merge_func)(co
         print_vector(v2);
         std::cout << std::endl;
 
-        auto result_v = merge_func(v1, v2);
+        auto result_v {merge_func(v1, v2)};
 
         std::cout << "Result vector: ";
         print_vector(result_v);
@@ -84,7 +90,7 @@ int main()
 
     std::cout << "---------------------------------------------------" << std::endl;
     std::cout << "Tests with 'my_merge1' function" << std::endl;
-    auto merge_f = my_merge1;
+    auto merge_f {my_merge1};
     run_test (v1, v2, merge_f);
     run_test ({}, v2, merge_f);
     run_test (v1, {}, merge_f);
