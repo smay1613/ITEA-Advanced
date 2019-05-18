@@ -42,9 +42,6 @@ std::vector<int> power(int c, int d, std::vector<int> vect_c){
         r *= c;
         vect_c.push_back(r);
     }
-    for(MySpace::ull i{0}; i < vect_c.size(); i++) {
-        std::cout << vect_c[i] << std::endl;
-    }
     return vect_c;
 }
 
@@ -65,6 +62,11 @@ void showlist_z(std::list <int> list_z){
 
 }
 
+void fill_list(std::list<int> list_y, std::vector<int> vect_y){
+    for (MySpace::ull i{0}; i < vect_y.size(); ++i ){
+        list_y.push_back(vect_y[i]);
+    }
+}
 int task2() // -----LIST-----
 {
     int x{10};
@@ -77,6 +79,7 @@ int task2() // -----LIST-----
     std::list<int> list_1;
     std::list<int> list_2;
     power(x,y,vect_1);
+
     print_vect_b(vect_1);
     power(a,b,vect_2);
     print_vect_b(vect_2);
@@ -89,12 +92,23 @@ int task2() // -----LIST-----
     }
     std::cout << "vect_3" <<std::endl;
     print_vect_b(vect_3);
-    for(MySpace::ull i{0}; i < 9; i++){
-    list_1.push_front(vect_3[i]);
-    }
-
+    fill_list(list_1,vect_3);
+    std::cout << "List 1" << std::endl;
     showlist_z(list_1);
 
+    for(MySpace::ull i{0}; i < vect_3.size(); ++i){
+        vect_3.pop_back();
+    }
+    for (MySpace::ull i{0}; i < vect_2.size(); i++){
+        int k = divide_first(vect_2[i]);
+        vect_3.push_back(k);
+        int j = divide_last(vect_2[i]);
+        vect_3.push_back(j);
+    }
+    std::cout << "vect_3" <<std::endl;
+    print_vect_b(vect_3);
+    fill_list(list_2,vect_3);
+    std::cout << "List 2" << std::endl;
     showlist_z(list_2);
 
     return 0;
