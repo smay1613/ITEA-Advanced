@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.8.1, 2019-05-15T18:44:20. -->
+<!-- Written by QtCreator 4.8.1, 2019-05-18T21:04:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -296,8 +296,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">CPP_ADV_Lesson1</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/CPPDEV/QT/T_Ilya/CPP_ADV_Lesson1/CPP_ADV_Lesson1.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CPP_ADV_Lesson12</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/CPPDEV/QT/T_Ilya/ITVDN-Advanced/Lesson1/T_Ilya/CPP_ADV_Lesson1/CPP_ADV_Lesson1.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">CPP_ADV_Lesson1.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>

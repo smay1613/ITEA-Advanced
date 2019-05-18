@@ -1,4 +1,8 @@
 #include "task.h"
+int task1();
+int task2();
+int task3();
+
 
 int main(){
     bool Work = true;
@@ -9,13 +13,13 @@ int main(){
         std::cin >> S;
         switch(S){
         case 0:
-            MySpace::task1();
+            task1();
             break;
         case 1:
-            MySpace::task2();
+            task2();
             break;
         case 2:
-            MySpace::task3();
+            task3();
             break;
         default:
             break;
