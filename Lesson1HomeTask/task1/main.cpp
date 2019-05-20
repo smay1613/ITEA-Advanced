@@ -7,13 +7,14 @@ using my_vec_t = std::vector<int>;
 
 my_vec_t my_merge1 (const my_vec_t& v1, const my_vec_t& v2)
 {
-    my_vec_t result {v1};
     const auto  result_size = v1.size() + v2.size();
-    result.resize(result_size);
+    my_vec_t result (result_size);
+
+    std::copy (v1.begin(), v1.end(), result.begin());
 
     auto it = std::next (result.begin(), v1.size());
-
     std::copy (v2.begin(), v2.end(), it);
+
     return result;
 }
 
