@@ -11,5 +11,4 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    functions.h \
-    task.h
+    functions.h
