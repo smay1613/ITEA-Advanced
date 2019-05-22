@@ -4,3 +4,9 @@
 [submodule "Lesson1/VectorLesson"]
 	path = Lesson1/VectorLesson
 	url = git@github.com:smay1613/VectorLesson.git
+[submodule "Lesson3/QueueLesson"]
+	path = Lesson3/QueueLesson
+	url = git@github.com:smay1613/QueueLesson.git
+[submodule "Lesson3/StackLesson"]
+	path = Lesson3/StackLesson
+	url = git@github.com:smay1613/StackLesson.git
