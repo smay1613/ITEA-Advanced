@@ -3,13 +3,13 @@
 int task1() //  -----VECTOR-----
 {
     unsigned long long v_size{10};
-    std::vector<int> vect_1(v_size);
-    std::vector<int> vect_2(v_size);
-    for(size_t i{0}; i < v_size; ++i){
-        vect_1.push_back(i);
+    std::vector<int> vect_1{};
+    std::vector<int> vect_2{};
+    for(size_t i{0}; i < v_size; ++i) {
+        vect_1.emplace_back(i);
     }
-    for(size_t i{0}; i < v_size; ++i){
-        vect_2.push_back(i);
+    for(size_t i{0}; i < v_size; ++i) {
+        vect_2.emplace_back(i);
     }
     std::cout << "Vector 1:" << std::endl;
     MFun::print_vect(vect_1);

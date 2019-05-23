@@ -6,8 +6,8 @@ int task2() // -----LIST-----
     int y{5};
     int a{19};
     int b{4};
-    std::vector<int> vect_1(5);
-    std::vector<int> vect_2(4);
+    std::vector<int> vect_1{};
+    std::vector<int> vect_2{};
     std::vector<int> vect_3{};
     std::list<int> list_1;
     std::list<int> list_2;
@@ -17,7 +17,7 @@ int task2() // -----LIST-----
     MFun::power(a,b,vect_2);
     std::cout << "vector 2" << std::endl;
     MFun::print_vect(vect_2);
-    for (size_t i{0}; i < vect_1.size(); ++i){
+    for (size_t i{0}; i < vect_1.size(); ++i) {
         int k = MFun::divide_first(vect_1[i]);
         vect_3.emplace_back(k);
         int j = MFun::divide_last(vect_1[i]);
@@ -28,10 +28,8 @@ int task2() // -----LIST-----
     MFun::fill_list(list_1,vect_3);
     std::cout << "List 1" << std::endl;
     MFun::showlist(list_1);
-    while (!vect_3.empty()){
-            vect_3.pop_back();
-    }
-    for (size_t i{0}; i < vect_2.size(); ++i){
+    vect_3.clear();
+    for (size_t i{0}; i < vect_2.size(); ++i) {
         int k = MFun::divide_first(vect_2[i]);
         vect_3.push_back(k);
         int j = MFun::divide_last(vect_2[i]);

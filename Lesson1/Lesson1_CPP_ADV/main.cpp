@@ -4,14 +4,14 @@ int task1();
 int task2();
 int task3();
 
-int main(){
+int main() {
     int S{0};
     bool Work = true;
-    while(Work){
+    while(Work) {
         std::cout << "Please choose your task: " << std::endl;
         std::cout << " possible task - 0-2" << std::endl;
         std::cin >> S;
-        switch(S){
+        switch(S) {
         case 0:
             task1();
             break;
