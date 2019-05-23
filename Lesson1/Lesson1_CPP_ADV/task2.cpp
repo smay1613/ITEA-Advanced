@@ -27,7 +27,7 @@ int task2() // -----LIST-----
     MFun::print_vect(vect_3);
     MFun::fill_list(list_1,vect_3);
     std::cout << "List 1" << std::endl;
-    MFun::showlist_z(list_1);
+    MFun::showlist(list_1);
     while (!vect_3.empty()){
             vect_3.pop_back();
     }
@@ -41,6 +41,6 @@ int task2() // -----LIST-----
     MFun::print_vect(vect_3);
     MFun::fill_list(list_2,vect_3);
     std::cout << "List 2" << std::endl;
-    MFun::showlist_z(list_2);
+    MFun::showlist(list_2);
     return 0;
 }

@@ -23,8 +23,8 @@ void power(int c, int d, std::vector<int>& vect_c){
         vect_c.emplace_back(r);
     }
 }
-void showlist_z(const std::list<int>& list_z){
-    for(const auto& value: list_z)
+void showlist(const std::list<int>& list_a){
+    for(const auto& value: list_a)
     {
         std::cout << '\t' << value;
     }

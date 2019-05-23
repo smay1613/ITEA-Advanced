@@ -1,7 +1,6 @@
 # Don't track content of these folders
-build-Lesson3-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/
-build-Lesson3_A-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/
-
+.*build.*
+build-Lesson1_CPP_ADV-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/
 # Exclude
 ###############
 *.pro.user

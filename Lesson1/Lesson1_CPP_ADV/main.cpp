@@ -1,6 +1,5 @@
 #include "functions.h"
 
-int task_main();
 int task1();
 int task2();
 int task3();
