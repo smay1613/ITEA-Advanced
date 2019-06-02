@@ -10,3 +10,9 @@
 [submodule "Lesson3/StackLesson"]
 	path = Lesson3/StackLesson
 	url = git@github.com:smay1613/StackLesson.git
+[submodule "Lesson5/SetLesson"]
+	path = Lesson5/SetLesson
+	url = git@github.com:smay1613/SetLesson.git
+[submodule "Lesson5/MapLesson"]
+	path = Lesson5/MapLesson
+	url = git@github.com:smay1613/MapLesson.git
