@@ -19,6 +19,10 @@ struct node
 
 void fill_all_nodes_on_level (const node* const root_node, const size_t level, std::queue <node*> & nodes_queue)
 {
+    if (root_node == nullptr) {
+        return;
+    }
+
     node* right_node = root_node->right;
     node* left_node  = root_node->left;
 
