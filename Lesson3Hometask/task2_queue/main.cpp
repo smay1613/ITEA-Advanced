@@ -17,7 +17,7 @@ struct node
     {}
 };
 
-void fill_all_nodes_on_level (const node* const root_node, const size_t level, std::queue <node*> & nodes_queue)
+void get_all_nodes_on_level (const node* const root_node, const size_t level, std::queue <node*> & nodes_queue)
 {
     if (root_node == nullptr) {
         return;
@@ -28,10 +28,10 @@ void fill_all_nodes_on_level (const node* const root_node, const size_t level, s
 
     if (level != 1) {
         if (left_node != nullptr) {
-            fill_all_nodes_on_level (left_node, level - 1, nodes_queue);
+            get_all_nodes_on_level (left_node, level - 1, nodes_queue);
         }
         if (right_node != nullptr) {
-            fill_all_nodes_on_level (right_node, level - 1, nodes_queue);
+            get_all_nodes_on_level (right_node, level - 1, nodes_queue);
         }
         return;
     }
@@ -68,7 +68,7 @@ void fill_tree_nodes_level (node& root_node)
         }
         level++;
 
-        fill_all_nodes_on_level (&root_node, level, nodes_queue);
+        get_all_nodes_on_level (&root_node, level, nodes_queue);
         nodes_on_level_existed = !nodes_queue.empty();
         fill_level_on_nodes (nodes_queue);
     }
