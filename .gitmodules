@@ -16,3 +16,6 @@
 [submodule "Lesson5/MapLesson"]
 	path = Lesson5/MapLesson
 	url = git@github.com:smay1613/MapLesson.git
+[submodule "Lesson9/UnorderedMapLesson"]
+	path = Lesson9/UnorderedMapLesson
+	url = git@github.com:smay1613/UnorderedMapLesson.git
