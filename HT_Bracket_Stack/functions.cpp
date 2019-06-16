@@ -24,7 +24,7 @@ void check_brackets()
                     brackets.pop();
                     continue ;
                 }
-                else break ;
+                break;
             }
             if(text[i] == ']')
             {
@@ -33,7 +33,7 @@ void check_brackets()
                     brackets.pop();
                     continue ;
                 }
-                else break ;
+                break;
             }
             if(text[i] == ')')
             {
@@ -42,7 +42,7 @@ void check_brackets()
                     brackets.pop();
                     continue ;
                 }
-                else break ;
+                break;
             }
         }
     }
