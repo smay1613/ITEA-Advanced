@@ -3,7 +3,7 @@
 
 int main()
 {
-    node *head;
+    node *head{0};
     head = new node(1,0,0);
     head->left = new node(2,0,0);
     head->right = new node(3,0,0);
