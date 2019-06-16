@@ -3,27 +3,27 @@
 
 void show_tree(node* head)
 {
-    std::queue<node*> list;
-    list.push(head);
+    std::queue<node*> list_tree;
+    list_tree.push(head);
     while(true){
-    int vect = list.size();
+    int vect = list_tree.size();
     if(vect == 0){
         break;
     }
     int tabs = 0;
     while(tabs<vect){
-        node* num = list.front();
-        std::cout <<num->value << " ";
-        if(num->left != nullptr){
-            list.push((num->left));
+        node* num = list_tree.front();
+        std::cout << num->value << " ";
+        if(num->left != 0){
+            list_tree.push((num->left));
         }
-        if(num->right!=nullptr){
-            list.push(num->right);
+        if(num->right != 0){
+            list_tree.push(num->right);
         }
-        list.pop();
+        list_tree.pop();
         tabs++;
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
 }
 }
 
