@@ -1,0 +1,458 @@
+w_blaste_01 - Blaster Pistol
+w_blaste_02 - Ion Blaster
+w_blaste_03 - Field Survival Pistol
+w_blaste_04 - Sonic Pistol
+w_blaste_05 - Distruptor Pistol
+w_blaste_06 - Heavy Blaster
+w_blaste_07 - Scout Enforcer
+w_blaste_08 - Systech Aural Blaster
+w_blaste_09 - Republic Blaster
+w_blaste_10 - Aratech Droid Oxidizer
+w_blaste_11 - Arkanian Heavy Pistol
+w_blaste_12 - Mandalorian Blaster
+w_blaste_13 - Systech Static Blaster
+w_blaste_14 - Arkanian Sonic Blaster
+w_blaste_15 - Sith Disruptor
+w_blaste_16 - Mandalorian Heavy Blaster
+w_blaste_17 - Heavy Sonic Blaster
+w_blaste_18 - Watchman Blaster
+w_blaste_19 - Zabrak Blaster Pistol
+w_blaste_20 - Mandalorian Ripper
+w_blaste_21 - Aratech Ion Master
+w_blaste_22 - Onasi Blaster
+w_blaste_23 - Dashade Sonic Blaster
+w_blaste_24 - Zabrak Heavy Blaster
+w_blaste_25 - Systech Electric Blaster
+w_blaste_26 - Micro-Pulse Blaster
+w_blaste_27 - Elite Watchman Blaster
+w_blaste_28 - Mandalorian Disintegrator
+w_blaste_29 - Dashade Sonic Disruptor
+w_blaste_30 - Freedon Nadd's Blaster
+w_blaste_x05 - Luxa's Disruptor
+w_blaste_x20 - Remote's Blaster
+Blaster Rifles
+
+w_brifle_01 - Blaster Carbine
+w_brifle_02 - Ion Carbine
+w_brifle_03 - Sonic Carbine
+w_brifle_04 - Blaster Rifle
+w_brifle_05 - Bowcaster
+w_brifle_06 - Repeating Blaster Carbine
+w_brifle_07 - Ion Rifle
+w_brifle_08 - Disruptor Carbine
+w_brifle_09 - Sonic Rifle
+w_brifle_10 - Repeating Blaster Rifle
+w_brifle_11 - War Bowcaster
+w_brifle_12 - Arkanian Blaster Rifle
+w_brifle_13 - Disruptor Rifle
+w_brifle_14 - Argazdan Riot Buster
+w_brifle_15 - Bothan Droid Disruptor
+w_brifle_16 - Combat Enforcer
+w_brifle_17 - Heavy Repeating Carbine
+w_brifle_18 - Plasma Projector
+w_brifle_19 - Mandalorian Assault Rifle
+w_brifle_20 - Verpine Droid Disruptor
+w_brifle_21 - Ceremonial Bowcaster
+w_brifle_22 - Heavy Repeating Rifle
+w_brifle_23 - Charric
+w_brifle_24 - Zabrak Blaster Carbine
+w_brifle_25 - Slavemaster Stun Carbine
+w_brifle_26 - Onderon Repeating Carbine
+w_brifle_27 - Sonic Disruptor
+w_brifle_28 - Mandalorian Heavy Repeater
+w_brifle_29 - Verpine Droid Disintegrator
+w_brifle_30 - Zersium Rifle
+Targeting Upgrades
+
+u_r_targ_01 - Pinpoint Scope Mark I
+u_r_targ_02 - Accuracy Scope Mark I
+u_r_targ_03 - Targeting Scope Mark I
+u_r_targ_04 - Crippling Scope Mark I
+u_r_targ_05 - Pinpoint Scope Mark II
+u_r_targ_06 - Accuracy Scope Mark II
+u_r_targ_07 - Targeting Scope Mark II
+u_r_targ_08 - Crippling Scope Mark II
+u_r_targ_09 - Pintpoint Scope Mark III
+u_r_targ_10 - Accuracy Scope Mark III
+u_r_targ_11 - Targeting Scope Mark III
+u_r_targ_12 - Crippling Scope Mark III
+u_r_targ_13 - Pinpoint Scope Mark IV
+u_r_targ_14 - Accuracy Scope Mark IV
+u_r_targ_15 - Targeting Scope Mark IV
+Power Pack Upgrades
+
+u_r_powe_01 - Ion Charger Mark I
+u_r_powe_02 - Power Pulsator Mark I
+u_r_powe_03 - Basic Rylith Power Cell
+u_r_powe_04 - Ion Charger Mark II
+u_r_powe_05 - Power Pulsator Mark II
+u_r_powe_06 - Standard Rylith Power Cell
+u_r_powe_07 - Ion Charger Mark III
+u_r_powe_08 - Power Pulsator Mark III
+u_r_powe_09 - Advanced Rylith Power Cell
+u_r_powe_10 - Ion Charger Mark IV
+u_r_powe_11 - Power Pulsator Mark IV
+u_r_powe_12 - Superior Rylith Power Cell
+u_r_powe_13 - Ion Charger Mark V
+u_r_powe_14 - Power Pulsator Mark V
+u_r_powe_15 - Pure Rylith Power Cell
+Firing Chamber Upgrades
+
+u_r_firi_01 - Broadening Chamber Mark I
+u_r_firi_02 - Amplifying Chamber Mark I
+u_r_firi_03 - Precision Chamber Mark I
+u_r_firi_04 - Beam Splitter Mark I
+u_r_firi_05 - Mandalorian Chamber Mark I
+u_r_firi_06 - Broadening Chamber Mark II
+u_r_firi_07 - Amplifying Chamber Mark II
+u_r_firi_08 - Precision Chamber Mark II
+u_r_firi_09 - Beam Splitter Mark II
+u_r_firi_10 - Mandalorian Chamber Mark II
+u_r_firi_11 - Broadening Chamber Mark III
+u_r_firi_12 - Amplifying Chamber Mark III
+u_r_firi_13 - Precision Chamber Mark III
+u_r_firi_14 - Beam Splitter Mark III
+u_r_firi_15 - Mandalorian Chamber Mark III
+
+These codes need to be preceeded by the word giveitem from within the console:
+Lightsabers
+
+g_w_lghtsbr01 - Blue Lightsaber
+g_w_lghtsbr02 - Red Lightsaber
+g_w_lghtsbr03 - Green Lightsaber
+g_w_lghtsbr04 - Yellow Lightsaber
+g_w_lghtsbr05 - Violet Lightsaber
+g_w_lghtsbr07 - Bronze Lightsaber
+g_w_lghtsbr08 - Orange Lightsaber
+g_w_lghtsbr09 - Silver Lightsaber
+g_w_lghtsbr10 - Cyan Lightsaber
+g_w_lghtsbr11 - Viridian Lightsaber
+g_w_drkjdisbr001 - Dark Jedi Lightsaber
+w_ls_x01 - Visas Marr's Lightsaber
+Short Lightsabers
+
+g_w_shortsbr01 - Blue Short Lightsaber
+g_w_shortsbr02 - Red Short Lightsaber
+g_w_shortsbr03 - Green Short Lightsaber
+g_w_shortsbr04 - Yellow Short Lightsaber
+g_w_shortsbr05 - Violet Short Lightsaber
+g_w_shortsbr07 - Bronze Short Lightsaber
+g_w_shortsbr08 - Orange Short Lightsaber
+g_w_shortsbr09 - Silver Short Lightsaber
+g_w_shortsbr10 - Cyan Short Lightsaber
+g_w_shortsbr11 - Viridian Short Lightsaber
+w_sls_x02 - Freedon Nadd's Short Lightsaber
+Double-Bladed Lightsabers
+
+g_w_dblsbr001 - Blue Double-Bladed Lightsaber
+g_w_dblsbr002 - Red Double-Bladed Lightsaber
+g_w_dblsbr003 - Green Double-Bladed Lightsaber
+g_w_dblsbr004 - Yellow Double-Bladed Lightsaber
+g_w_dblsbr005 - Violet Double-Bladed Lightsaber
+g_w_dblsbr007 - Bronze Double-Bladed Lightsaber
+g_w_dblsbr008 - Orange Double-Bladed Lightsaber
+g_w_dblsbr009 - Silver Double-Bladed Lightsaber
+g_w_dblsbr010 - Cyan Double-Bladed Lightsaber
+g_w_dblsbr011 - Viridian Double-Bladed Lightsaber
+g_w_drkjdisbr002 - Dark Jedi Double-Bladed Lightsaber
+Lightsaber Color Crystals
+
+u_l_colo_01 - Blue Crystal
+u_l_colo_02 - Green Crystal
+u_l_colo_03 - Yellow Crystal
+u_l_colo_04 - Red Crystal
+u_l_colo_05 - Violet Crystal
+u_l_colo_06 - Cyan Crystal
+u_l_colo_07 - Silver Crystal
+u_l_colo_08 - Orange Crystal
+u_l_colo_09 - Viridian Crystal
+u_l_colo_10 - Bronze Crystal
+Lightsaber Crystals
+
+u_l_crys_01 - Adegan Crystal
+u_l_crys_02 - Rubat Crystal
+u_l_crys_03 - Ruustan Crystal
+u_l_crys_04 - Nextor Crystal
+u_l_crys_05 - Dragite Crystal
+u_l_crys_06 - Firkrann Crystal
+u_l_crys_07 - Phond Crystal
+u_l_crys_08 - Bondar Crystal
+u_l_crys_09 - Velmorite Crystal
+u_l_crys_10 - Sigil Crystal
+u_l_crys_11 - Jenruax Crystal
+u_l_crys_12 - Kasha Crystal
+u_l_crys_13 - Opila Crystal
+u_l_crys_14 - Eralam Crystal
+u_l_crys_15 - Stygium Crystal
+u_l_crys_16 - Damind Crystal
+u_l_crys_17 - Sapith Crystal
+u_l_crys_18 - Pontite Crystal
+u_l_crys_19 - Upari Crystal
+u_l_crys_20 - Ultima-pearl
+u_l_crys_21 - Solari Crystal
+u_l_crys_21x - Qixoni Crystal
+u_l_crys_22 - Lorridian Gemstone
+u_l_crys_23 - Barab Ore Ingot
+u_l_crys_x23 - Hurrikaine Crystal
+u_l_crys_24 - Ankarres Sapphire
+u_l_crys_25 - Kaiburr Crystal
+Personal Crystal
+
+qcrystal_1_0 - Very Dark: Level 1
+qcrystal_2_0 - Very Dark: Level 2
+qcrystal_3_0 - Very Dark: Level 3
+qcrystal_4_0 - Very Dark: Level 4
+qcrystal_5_0 - Very Dark: Level 5
+qcrystal_6_0 - Very Dark: Level 6
+qcrystal_7_0 - Very Dark: Level 7
+qcrystal_8_0 - Very Dark: Level 8
+qcrystal_9_0 - Very Dark: Level 9
+qcrystal_1_1 - Dark: Level 1
+qcrystal_2_1 - Dark: Level 2
+qcrystal_3_1 - Dark: Level 3
+qcrystal_4_1 - Dark: Level 4
+qcrystal_5_1 - Dark: Level 5
+qcrystal_6_1 - Dark: Level 6
+qcrystal_7_1 - Dark: Level 7
+qcrystal_8_1 - Dark: Level 8
+qcrystal_9_1 - Dark: Level 9
+qcrystal_1_2 - Neutral: Level 1
+qcrystal_2_2 - Neutral: Level 2
+qcrystal_3_2 - Neutral: Level 3
+qcrystal_4_2 - Neutral: Level 4
+qcrystal_5_2 - Neutral: Level 5
+qcrystal_6_2 - Neutral: Level 6
+qcrystal_7_2 - Neutral: Level 7
+qcrystal_8_2 - Neutral: Level 8
+qcrystal_9_2 - Neutral: Level 9
+qcrystal_1_3 - Light: Level 1
+qcrystal_2_3 - Light: Level 2
+qcrystal_3_3 - Light: Level 3
+qcrystal_4_3 - Light: Level 4
+qcrystal_5_3 - Light: Level 5
+qcrystal_6_3 - Light: Level 6
+qcrystal_7_3 - Light: Level 7
+qcrystal_8_3 - Light: Level 8
+qcrystal_9_3 - Light: Level 9
+
+These codes need to be preceeded by the word giveitem from within the console:
+Personal Crystals continued
+
+qcrystal_1_4 - Very Light: Level 1
+qcrystal_2_4 - Very Light: Level 2
+qcrystal_3_4 - Very Light: Level 3
+qcrystal_4_4 - Very Light: Level 4
+qcrystal_5_4 - Very Light: Level 5
+qcrystal_6_4 - Very Light: Level 6
+qcrystal_7_4 - Very Light: Level 7
+qcrystal_8_4 - Very Light: Level 8
+qcrystal_9_4 - Very Light: Level 9
+Lens Upgrades
+
+lspart03 - Lightsaber Focusing Lens Fixture
+u_l_lens_01 - Synthesized Kunda Lens
+u_l_lens_02 - Dragite Lens
+u_l_lens_03 - Synthesized Byrothsis Lens
+u_l_lens_04 - Beam Gem Lens
+u_l_lens_05 - Vibration Lens
+u_l_lens_06 - Pure Kunda Lens
+u_l_lens_07 - Adegan Lens
+u_l_lens_08 - Pure Byrothsis Lens
+u_l_lens_09 - Improved Beam Gem Lens
+u_l_lens_10 - Improved Vibration Lens
+u_l_lens_11 - Ossus Dueling Lens
+u_l_lens_12 - Pontite Lens
+u_l_lens_13 - Enhanced Byrothsis Lens
+Emitter Upgrades
+
+lspart02 - Lightsaber Emitter Fixture
+u_l_emit_01 - Deflection Emitter
+u_l_emit_02 - Disrupting Emitter
+u_l_emit_03 - Crude Phobium Emitter
+u_l_emit_04 - Fencing Emitter
+u_l_emit_05 - Improved Deflection Emitter
+u_l_emit_06 - Advanced Disrupting Emitter
+u_l_emit_07 - Synthesized Phobium Emitter
+u_l_emit_08 - Improved Fencing Emitter
+u_l_emit_09 - Expert Deflection Emitter
+u_l_emit_10 - Superior Disrupting Emitter
+u_l_emit_11 - Phobium Alloy Emitter
+u_l_emit_12 - Expert Fencing Emitter
+u_l_emit_13 - Refined Phobium Emitter
+Cell Upgrades
+
+lspart01 - Lightsaber Energy Cell Fixture
+u_l_cell_01 - Discharge Energy Cell
+u_l_cell_02 - Diatium Energy Cell
+u_l_cell_03 - Ion Energy Cell
+u_l_cell_04 - Telgorn Jolt Cell Mark I
+u_l_cell_05 - Improved Discharge Energy Cell
+u_l_cell_06 - Improved Diatium Energy Cell
+u_l_cell_07 - Improved Ion Energy Cell
+u_l_cell_08 - Telgorn Jolt Cell Mark II
+u_l_cell_09 - Superior Discharge Energy Cell
+u_l_cell_10 - Superior Diatium Energy Cell
+u_l_cell_11 - Superior Ion Energy Cell
+u_l_cell_12 - Telgorn Jolt Cell Mark III
+u_l_cell_13 - Ultimate Diatium Energy cell
+Medical Items (Non-droid characters)
+
+g_i_medeqpmnt01 - Medpac
+g_i_medeqpmnt02 - Advanced Medpac
+g_i_medeqpmnt03 - Life Support Pack
+g_i_medeqpmnt04 - Antidote Kit
+g_i_medeqpmnt08 - Squad Recovery Stim
+Droid Items
+
+g_i_drdrepeqp001 - Repair Kit
+g_i_drdrepeqp002 - Advanced Repair Kit
+g_i_drdrepeqp003 - Construction Kit
+Mines
+
+g_i_trapkit001 - Minor Flash Mine
+g_i_trapkit002 - Average Flash Mine
+g_i_trapkit003 - Blinding Flash Mine
+g_i_trapkit004 - Minor Frag Mine
+g_i_trapkit005 - Average Frag Mine
+g_i_trapkit006 - Deadly Frag Mine
+g_i_trapkit007 - Minor Plasma Mine
+g_i_trapkit008 - Average Plasma Mine
+g_i_trapkit009 - Deadly Plasma Mine
+g_i_trapkit010 - Minor Gas Mine
+g_i_trapkit011 - Average Gas Mine
+g_i_trapkit012 - Deadly Gas Mine
+g_i_trapkit013 - Minor Sonic Mine
+g_i_trapkit014 - Average Sonic Mine
+g_i_trapkit015 - Deadly Sonic Mine
+g_i_trapkit016 - Strong Flash Mine
+g_i_trapkit017 - Devastating Flash Mine
+g_i_trapkit018 - Strong Frag Mine
+g_i_trapkit019 - Devastating Frag Mine
+g_i_trapkit020 - Strong Plasma Mine
+g_i_trapkit021 - Devastating Plasma Mine
+g_i_trapkit022 - Strong Gas Mine
+g_i_trapkit023 - Devastating Gas Mine
+g_i_trapkit024 - Strong Sonic Mine
+g_i_trapkit025 - Devastating Sonic Mine
+Grenades
+
+g_w_adhsvgren001 - Adhesive Grenade
+g_w_cryobgren001 - CryoBan Grenade
+g_w_firegren001 - Plasma Grenade
+g_w_fraggren01 - Frag Grenade
+g_w_iongren01 - Ion Grenade
+g_w_poisngren01 - Poison Grenade
+g_w_sonicdet01 - Minor Sonic Detonator
+g_w_sonicdet02 - Sonic Detonator
+g_w_sonicgren01 - Sonic Grenade
+g_w_stungren01 - Concussion Grenade
+g_w_thermldet01 - Thermal Detonator
+Wrist Launchers
+
+wristlauncher - Wrist Launcher
+w_rocket_01 - Explosive Rocket
+w_rocket_02 - Tranquilizer Dart
+w_rocket_03 - Buster Rocket
+w_rocket_04 - Kyber Dart
+w_rocket_05 - Plasma Rocket
+w_rocket_06 - Poison Rocket
+w_rocket_07 - Poison Dart
+w_rocket_08 - Piercing Dart
+w_rocket_09 - Paralysis Dart
+w_rocket_10 - Ion Rocket
+w_rocket_11 - Concussion Rocket
+Stims
+
+g_i_adrnaline001 - Adrenal Strength
+g_i_adrnaline002 - Adrenal Alacrity
+g_i_adrnaline003 - Adrenal Stamina
+g_i_adrnaline004 - Hyper-Adrenal Strength
+g_i_adrnaline005 - Hyper-Adrenal Alacrity
+g_i_adrnaline006 - Hyper-Adrenal Stamina
+g_i_cmbtshot001 - Battle Stimulant
+g_i_cmbtshot002 - Hyper-battle Stimulant
+g_i_cmbtshot003 - Echani Battle Stimulant
+Utilities
+
+g_i_parts01 - Parts
+g_i_progspike01 - Computer Spike
+g_i_secspike01 - Security Spike
+g_i_secspike02 - Security Spike Tunneler
+Upgrade Items
+
+g_i_upgrade001 - Scope
+g_i_upgrade002 - Improved Energy Cell
+g_i_upgrade003 - Beam Splitter
+g_i_upgrade004 - Hair Trigger
+g_i_upgrade005 - Armour Reinforcement
+g_i_upgrade006 - Mesh Underlay
+g_i_upgrade007 - Vibration Cell
+g_i_upgrade008 - Durasteel Bonding Alloy
+g_i_upgrade009 - Energy Projector
+Pazaak Decks
+
+g_i_pazdeck - Pazaak Deck
+g_i_pazsidebd001 - Pazaak Side Deck
+Pazaak Cards
+
+g_i_pazcard_001 - Pazaak Card +1
+g_i_pazcard_002 - Pazaak Card +2
+g_i_pazcard_003 - Pazaak Card +3
+g_i_pazcard_004 - Pazaak Card +4
+g_i_pazcard_005 - Pazaak Card +5
+g_i_pazcard_006 - Pazaak Card +6
+g_i_pazcard_007 - Pazaak Card -1
+g_i_pazcard_008 - Pazaak Card -2
+g_i_pazcard_009 - Pazaak Card -3
+g_i_pazcard_010 - Pazaak Card -4
+g_i_pazcard_011 - Pazaak Card -5
+g_i_pazcard_012 - Pazaak Card -6
+g_i_pazcard_013 - Pazaak Card +/-1
+g_i_pazcard_014 - Pazaak Card +/-2
+g_i_pazcard_015 - Pazaak Card +/-3
+g_i_pazcard_016 - Pazaak Card +/-4
+g_i_pazcard_017 - Pazaak Card +/-5
+g_i_pazcard_018 - Pazaak Card +/-6
+g_i_pazcard_019 - Pazaak Card +/- 1/2
+g_i_pazcard_020 - Pazaak Card Double
+g_i_pazcard_021 - Pazaak Card Tie Breaker
+g_i_pazcard_022 - Pazaak Card Flip 2&4
+g_i_pazcard_023 - Pazaak Card Flip 3&6
+Player-Specific Items
+G0-T0
+
+d_g0t0_01 - Droid Stealth Booster
+d_g0t0_02 - Droid Omniscience Unit
+d_g0t0_03 - Droid Singularity Projector
+d_g0t0_04 - Goto Targeting Module
+HK-47
+
+d_hk47_01 - Droid Assassin's Rifle
+d_hk47_02 - Droid Capacitor Armor
+d_hk47_03 - Droid Assassination Module
+hkpart01 - HK Droid Processor
+hkpart02 - HK Chassis
+hkpart03 - HK Control Cluster
+hkpart04 - HK Vocabulator
+hkpart05 - HK Protocol Pacifist Package
+T3-M4
+
+d_t3m4_01 - Droid Shock Arm
+d_t3m4_02 - Droid Self-Sustaining Unit
+d_t3m4_03 - Droid Renewable Shield
+Credits
+
+g_i_credits001 - 5 credit stack
+g_i_credits002 - 10 credit stack
+g_i_credits003 - 25 credit stack
+g_i_credits004 - 50 credit stack
+g_i_credits005 - 100 credit stack
+g_i_credits006 - 200 credit stack
+g_i_credits007 - 300 credit stack
+g_i_credits008 - 400 credit stack
+g_i_credits009 - 500 credit stack
+g_i_credits010 - 1000 credit stack
+g_i_credits011 - 2000 credit stack
+g_i_credits012 - 3000 credit stack
+g_i_credits013 - 4000 credit stack
+g_i_credits014 - 5000 credit stack

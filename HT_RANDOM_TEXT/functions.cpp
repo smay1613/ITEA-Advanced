@@ -12,8 +12,9 @@ void count_word(std::string word)
 
 void unique_word(std::string word_u)
 {
+    int count_u{0};
     while(word_u != word_u){
-        std::cout << word_u << "only one case" << std::endl;
+        std::cout << "number of words" << word_u << " is " << count_u << std::endl;
     }
 }
 
@@ -26,7 +27,7 @@ void read_file(std::string filename)
         while(!file.eof()){
             while(file >> word_f){
             if(word_f.size() > 0){
-                std::cout << word_f << " | ";
+                std::cout << word_f << " | " << std::endl;
             }
             count_word(word_f);
             unique_word(word_f);
