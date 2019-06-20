@@ -8,7 +8,6 @@ GridView {
     cellWidth: width / 4
 
     model: GameBoard_qml {
-        someRole
     }
 
     delegate: Item {
@@ -18,6 +17,8 @@ GridView {
         Tile {
             anchors.fill: _backgroundDelegate
             anchors.margins: 5
+
+            internalText.text: display.toString()
         }
     }
 }

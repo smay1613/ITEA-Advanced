@@ -26,20 +26,10 @@ public:
 
     //{ To become a QAbstractListModel
 
-    enum {
-        someRole = Qt::UserRole,
-        anotherRole
-    };
-
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-
-    virtual QHash<int, QByteArray> roleNames() const override;
     //}
 
 private:
@@ -49,4 +39,6 @@ private:
 
     bool isBoardValid() const;
     bool isPositionValid (const size_t position) const;
+    bool isSizeValid(size_t size) const ;
+
 };

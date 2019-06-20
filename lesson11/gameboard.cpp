@@ -53,55 +53,31 @@ bool GameBoard::isBoardValid() const
 
 bool GameBoard::isPositionValid(const size_t position) const
 {
-    return position < m_boardsize;
+    return (position < m_boardsize);
 }
 
-int GameBoard::rowCount(const QModelIndex &parent) const
+int GameBoard::rowCount(const QModelIndex &/*parent*/) const
 {
-    // For list models only the root node (an invalid parent) should return the list's size. For all
-    // other (valid) parents, rowCount() should return 0 so that it does not become a tree model.
-    if (parent.isValid())
-        return 0;
-
-    // FIXME: Implement me!
     return static_cast<int>(m_boardsize);
 }
 
 QVariant GameBoard::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
-        return QVariant();
-
-    // FIXME: Implement me!
-    switch (role) {
-    case someRole   : return QVariant("someRoleData"   );
-    case anotherRole: return QVariant("anotherRoleData");
+    if (!index.isValid() || role != Qt::DisplayRole) {
+        return {};
     }
-    return QVariant();
-}
 
-bool GameBoard::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (data(index, role) != value) {
-        // FIXME: Implement me!
-        emit dataChanged(index, index, QVector<int>() << role);
-        return true;
+    const size_t index_row = static_cast<size_t>(index.row());
+
+    if (!isSizeValid(index_row)) {
+        return {};
     }
-    return false;
+
+    //return QVariant( static_cast<int>(m_raw_board[index_row].value) );
+    return QVariant::fromValue(m_raw_board[index_row].value);
 }
 
-Qt::ItemFlags GameBoard::flags(const QModelIndex &index) const
+bool GameBoard::isSizeValid(size_t size) const
 {
-    if (!index.isValid())
-        return Qt::NoItemFlags;
-
-    return Qt::ItemIsEditable; // FIXME: Implement me!
-}
-
-QHash<int, QByteArray> GameBoard::roleNames() const
-{
-    QHash<int, QByteArray> names;
-    names[someRole] = "someRole";
-    names[anotherRole] = "anotherRole";
-    return names;
+    return size <= m_boardsize;
 }
