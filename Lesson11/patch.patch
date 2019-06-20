@@ -1,0 +1,198 @@
+diff --git a/Lesson11/GameBoard.qml b/Lesson11/GameBoard.qml
+index 8078ab0..efb339e 100644
+--- a/Lesson11/GameBoard.qml
++++ b/Lesson11/GameBoard.qml
+@@ -1,33 +1,29 @@
+ import QtQuick 2.0
+-
++import GameBoard_uri 1.0
++import Game 1.0
+ GridView {
+     id: root
+ 
+     cellHeight: height / 4
+     cellWidth: width / 4
+-
+-    model: ListModel {
+-        ListElement {
+-            value: 1
+-        }
+-        ListElement {
+-            value: 2
+-        }
+-        ListElement {
+-            value: 3
+-        }
+-        ListElement {
+-            value: 4
+-        }
++    interactive: false
++    model: GameBoard_qml {
+     }
+ 
+     delegate: Item {
+         id: _backgroundDelegate
+         width: root.cellWidth
+         height: root.cellHeight
++        visible: root.model.hiddenElementValue !== display
+         Tile {
+             anchors.fill: _backgroundDelegate
+             anchors.margins: 5
++
++            internalText.text: display.toString()
+         }
+     }
++    GameController_qml{
++        id: _gameController
++    }
++
+ }
+diff --git a/Lesson11/gameboard.cpp b/Lesson11/gameboard.cpp
+index 8dee9fb..5932351 100644
+--- a/Lesson11/gameboard.cpp
++++ b/Lesson11/gameboard.cpp
+@@ -5,9 +5,11 @@
+ #include <algorithm>
+ #include <random>
+ 
+-GameBoard::GameBoard(size_t board_dimension):
++GameBoard::GameBoard(QObject *parent, size_t board_dimension):
++    QAbstractListModel {parent},
+     m_dimension {board_dimension},
+-    m_boardsize {board_dimension * board_dimension}
++    m_boardsize {board_dimension * board_dimension},
++    hiddenElementValue {m_boardsize}
+ {
+     m_raw_board.resize(m_boardsize);
+     std::iota(m_raw_board.begin(), m_raw_board.end(), 1);
+@@ -52,5 +54,36 @@ bool GameBoard::isBoardValid() const
+ 
+ bool GameBoard::isPositionValid(const size_t position) const
+ {
+-    return position < m_boardsize;
++    return (position < m_boardsize);
++}
++
++int GameBoard::rowCount(const QModelIndex &/*parent*/) const
++{
++    return static_cast<int>(m_boardsize);
++}
++
++QVariant GameBoard::data(const QModelIndex &index, int role) const
++{
++    if (!index.isValid() || role != Qt::DisplayRole) {
++        return {};
++    }
++
++    const size_t index_row = static_cast<size_t>(index.row());
++
++    if (!isSizeValid(index_row)) {
++        return {};
++    }
++
++    //return QVariant( static_cast<int>(m_raw_board[index_row].value) );
++    return QVariant::fromValue(m_raw_board[index_row].value);
++}
++
++size_t GameBoard::getHiddenElementValue() const
++{
++    return hiddenElementValue;
++}
++
++bool GameBoard::isSizeValid(size_t size) const
++{
++    return size <= m_boardsize;
+ }
+diff --git a/Lesson11/gameboard.h b/Lesson11/gameboard.h
+index ec3935f..8d2456a 100644
+--- a/Lesson11/gameboard.h
++++ b/Lesson11/gameboard.h
+@@ -4,14 +4,16 @@
+ #include <QAbstractListModel>
+ 
+ // homework : to MVC - model ListModel
++// https://www.youtube.com/watch?v=9BcAYDlpuT8&t=1215s
+ 
+ class GameBoard : public QAbstractListModel
+ {
+     Q_OBJECT
++    Q_PROPERTY(int hiddenElementValue READ getHiddenElementValue CONSTANT)
+ public:
+     static constexpr size_t DEFAULT_DIMENSION  {4};
+ 
+-    GameBoard(size_t board_dimension = DEFAULT_DIMENSION);
++    GameBoard(QObject *parent = nullptr, size_t board_dimension = DEFAULT_DIMENSION);
+ 
+     struct Tile {
+         size_t value {};
+@@ -23,11 +25,25 @@ public:
+ 
+     void shuffle();
+ 
++    //{ To become a QAbstractListModel
++
++    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
++
++    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
++
++    //}
++
++    size_t getHiddenElementValue() const;
++
+ private:
+     std::vector<Tile> m_raw_board;
+     const size_t m_dimension;
+     const size_t m_boardsize;
+ 
++    const size_t hiddenElementValue;
++
+     bool isBoardValid() const;
+     bool isPositionValid (const size_t position) const;
++    bool isSizeValid(size_t size) const ;
++
+ };
+diff --git a/Lesson11/lesson11.pro b/Lesson11/lesson11.pro
+index ed1ba50..2242449 100644
+--- a/Lesson11/lesson11.pro
++++ b/Lesson11/lesson11.pro
+@@ -14,6 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
+ 
+ SOURCES += \
+         gameboard.cpp \
++        gamecontroller.cpp \
+         main.cpp
+ 
+ RESOURCES += qml.qrc
+@@ -30,4 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
+ !isEmpty(target.path): INSTALLS += target
+ 
+ HEADERS += \
+-    gameboard.h
++    gameboard.h \
++    gamecontroller.h
+diff --git a/Lesson11/main.cpp b/Lesson11/main.cpp
+index bb7979e..b3ca32a 100644
+--- a/Lesson11/main.cpp
++++ b/Lesson11/main.cpp
+@@ -1,17 +1,17 @@
+ #include <QGuiApplication>
+ #include <QQmlApplicationEngine>
+ #include "gameboard.h"
+-
++#include "gamecontroller.h"
+ int main(int argc, char *argv[])
+ {
+     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+ 
+     QGuiApplication app(argc, argv);
+ 
+-    GameBoard gameBoard;
+-
+-
++    //GameBoard gameBoard;
+ 
++    qmlRegisterType<GameBoard>("GameBoard_uri", 1, 0, "GameBoard_qml");
++    qmlRegisterType<GameController>("Game", 1, 0, "GameController_qml");
+ 
+     QQmlApplicationEngine engine;
+     const QUrl url(QStringLiteral("qrc:/main.qml"));
