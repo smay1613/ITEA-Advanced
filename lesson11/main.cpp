@@ -8,9 +8,9 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    GameBoard gameBoard;
+    //GameBoard gameBoard;
 
-
+    qmlRegisterType<GameBoard>("GameBoard_uri", 1, 0, "GameBoard_qml");
 
 
     QQmlApplicationEngine engine;

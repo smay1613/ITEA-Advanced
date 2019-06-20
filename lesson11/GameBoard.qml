@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import GameBoard_uri 1.0
 
 GridView {
     id: root
@@ -6,19 +7,8 @@ GridView {
     cellHeight: height / 4
     cellWidth: width / 4
 
-    model: ListModel {
-        ListElement {
-            value: 1
-        }
-        ListElement {
-            value: 2
-        }
-        ListElement {
-            value: 3
-        }
-        ListElement {
-            value: 4
-        }
+    model: GameBoard_qml {
+        someRole
     }
 
     delegate: Item {
