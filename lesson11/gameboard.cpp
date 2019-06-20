@@ -8,7 +8,8 @@
 GameBoard::GameBoard(QObject *parent, size_t board_dimension):
     QAbstractListModel {parent},
     m_dimension {board_dimension},
-    m_boardsize {board_dimension * board_dimension}
+    m_boardsize {board_dimension * board_dimension},
+    m_hiddenElementValue {m_boardsize}
 {
     m_raw_board.resize(m_boardsize);
     std::iota(m_raw_board.begin(), m_raw_board.end(), 1);
@@ -75,6 +76,76 @@ QVariant GameBoard::data(const QModelIndex &index, int role) const
 
     //return QVariant( static_cast<int>(m_raw_board[index_row].value) );
     return QVariant::fromValue(m_raw_board[index_row].value);
+}
+
+size_t GameBoard::hiddenElementValue() const
+{
+    return m_hiddenElementValue;
+}
+
+GameBoard::Position GameBoard::getRowCol(size_t index) const {
+    size_t row = index / m_dimension;
+    size_t col = index % m_dimension;
+
+    return std::make_pair(row, col);
+}
+
+namespace  {
+    bool is_adjacent (GameBoard::Position first, GameBoard::Position second)
+    {
+        if (first == second){
+            return false;
+        }
+
+        const auto calc_distance = [](size_t pos1, size_t pos2){
+            int distance = static_cast<int>(pos1);
+            distance -= static_cast<int>(pos2);
+            if (distance < 0) {
+                distance *= -1;
+            }
+            return distance;
+        };
+
+        bool result {false};
+
+        if (first.first == second.first) {
+            int distance = calc_distance (first.second, second.second);
+            if (distance == 1) {
+                result = true;
+            }
+        }
+        else if (first.second == second.second) {
+            int distance = calc_distance (first.first, second.first);
+            if (distance == 1) {
+                result = true;
+            }
+        }
+
+        return result;
+    }
+}
+
+bool GameBoard::move(int index)
+{
+    if (!isPositionValid(static_cast<size_t>(index))) {
+        return false;
+    }
+
+    Position positionOfIndex {getRowCol(index)};
+
+//    auto l = [](const Tile)
+
+    auto hiddenElementIterator = std::find(m_raw_board.begin(), m_raw_board.end(), m_hiddenElementValue);
+
+    Q_ASSERT(hiddenElementIterator != m_raw_board.end());
+    Position hiddenElementPosition {getRowCol(std::distance(m_raw_board.begin(), hiddenElementIterator))};
+
+    if (!is_adjacent(positionOfIndex, hiddenElementPosition)) {
+        return  false;
+    }
+    std::swap(hiddenElementIterator->value, m_raw_board[index].value);
+    emit dataChanged(createIndex(0, 0), createIndex(m_boardsize, 0));
+    return true;
 }
 
 bool GameBoard::isSizeValid(size_t size) const
