@@ -2,12 +2,14 @@
 
 int main()
 {
+    std::string welcome{"Do you like to read from file(enter 1) or text(enter 2)? \n Enter 0 to exit."};
     std::string file_name;
     std::string text;
     int choice{0};
-    std::cout << "Do you like to read from file(enter 1) or text(enter 2)?" << std::endl;
+    std::cout << welcome << std::endl;
     std::cin >> choice;
-    switch(choice){
+    while(choice){
+        switch(choice){
         case 1:
             std::cout << " enter the name of the file" << std::endl;
             std::cin >> file_name;
@@ -21,5 +23,11 @@ int main()
         default:
             break;
         }
-        return 0;
+        std::cout << welcome << std::endl;
+        std::cin >> choice;
+        if(choice == 0){
+            return 0;
+        }
+
+    }
 }

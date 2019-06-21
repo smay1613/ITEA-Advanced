@@ -1,52 +1,37 @@
 #include "functions.h"
 
 
-
-void count_word(std::string word)
-{
-    int count{0};
-    while(word == word){
-        std:: cout << "the number of: " << word << " is " << count++ << std::endl;
-    }
-}
-
-void unique_word(std::string word_u)
-{
-    int count_u{0};
-    while(word_u != word_u){
-        std::cout << "number of words" << word_u << " is " << count_u << std::endl;
-    }
-}
-
 void read_file(std::string filename)
 {
+    int count{0};
     std::string word_f;
     std::ifstream file;
     file.open(filename);
     if(file.is_open()){
         while(!file.eof()){
             while(file >> word_f){
-            if(word_f.size() > 0){
-                std::cout << word_f << " | " << std::endl;
+                if(word_f.size() > 0){
+                    std::cout << word_f << std::endl;
+                    count++;
+                }
             }
-            count_word(word_f);
-            unique_word(word_f);
-            }
+
+
         }
         std::cout << std::endl;
-        file.close();
     }
+    std::cout << "Word count in file is: " << count << std::endl;
+    file.close();
 }
 
 void read_text(std::string m_text)
-{
-    std::string word_t;
-    while(!m_text.back()){
-        if(word_t.size() > 0){
-            std::cout << word_t << " / ";
-        }
-        count_word(word_t);
-        unique_word(word_t);
-    }
+{   int count{0};
+    getline(std::cin, m_text);
+    std::istringstream iss(m_text);
+    std::string word_out;
     std::cout << std::endl;
+    while(iss >> word_out){
+        std::cout << word_out << std::endl;
+        count++;
+    }std::cout << "Word count in text is: " << count << std::endl;
 }
