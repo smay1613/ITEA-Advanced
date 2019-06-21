@@ -17,6 +17,7 @@ int main()
             break;
         case 2:
             std::cout << "enter the text:" << std::endl;
+            std::cout << "before typing text - type - '... '" << std::endl;
             std::cin >> text;
             read_text(text);
             break;

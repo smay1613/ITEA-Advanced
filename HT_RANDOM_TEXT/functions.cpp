@@ -26,7 +26,7 @@ void read_file(std::string filename)
 
 void read_text(std::string m_text)
 {   int count{0};
-    getline(std::cin, m_text);
+    std::getline(std::cin,m_text);
     std::istringstream iss(m_text);
     std::string word_out;
     std::cout << std::endl;
