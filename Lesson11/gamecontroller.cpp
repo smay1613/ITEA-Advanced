@@ -2,7 +2,6 @@
 
 GameController::GameController(QObject *parent) : QObject(parent)
 {
-
 }
 
 GameBoard &GameController::getModel()

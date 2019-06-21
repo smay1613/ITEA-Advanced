@@ -1,8 +1,7 @@
-#ifndef GAMECONTROLLER_H
-#define GAMECONTROLLER_H
+#pragma once
 
 #include <QObject>
-#include <gameboard.h>
+#include "gameboard.h"
 
 class GameController : public QObject
 {
@@ -15,9 +14,5 @@ public:
 
 private:
     GameBoard gameBoard;
-signals:
-
-public slots:
 };
 
-#endif // GAMECONTROLLER_H

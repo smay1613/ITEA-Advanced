@@ -2,15 +2,14 @@
 #include <QQmlApplicationEngine>
 #include "gameboard.h"
 #include "gamecontroller.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
 
-    //GameBoard gameBoard;
-
-    qmlRegisterType<GameBoard>("GameBoard_uri", 1, 0, "GameBoard_qml");
+    qmlRegisterType<GameBoard>     ("Game", 1, 0, "GameBoard_qml"     );
     qmlRegisterType<GameController>("Game", 1, 0, "GameController_qml");
 
     QQmlApplicationEngine engine;
