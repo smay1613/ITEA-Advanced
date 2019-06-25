@@ -152,25 +152,24 @@ bool GameBoard::isSizeValid(size_t size) const
     return size <= m_boardsize;
 }
 
-void victory(){
-    std::make_pair(row, col);
-    enum ROW_COL{
-        pos 0 == getRowCol(0,0)
-        , pos1 == getRowCol(0,1)
-        , pos2 == getRowCol(0,2)
-        , pos3 == getRowCol(0,3)
-        , pos4 == getRowCol(1,0)
-        , pos5 == getRowCol(1,1)
-        , pos6 == getRowCol(1,2)
-        , pos7 == getRowCol(1,3)
-        , pos8 == getRowCol(2,0)
-        , pos9 == getRowCol(2,1)
-        , pos10 == getRowCol(2,2)
-        , pos11 == getRowCol(2,3)
-        , pos12 == getRowCol(3,0)
-        , pos13 == getRowCol(3,1)
-        , pos14 == getRowCol(3,2)
-        , pos15 == getRowCol(3,3)
+void GameBoard::victory(){;
+    enum class ROW_COL{
+        pos0 = GameBoard::getRowCol(0)
+        , pos1 = getRowCol(1)
+        , pos2 = getRowCol(2)
+        , pos3 = getRowCol(3)
+        , pos4 = getRowCol(4)
+        , pos5 = getRowCol(5)
+        , pos6 = getRowCol(6)
+        , pos7 = getRowCol(7)
+        , pos8 = getRowCol(8)
+        , pos9 = getRowCol(9)
+        , pos10 = getRowCol(10)
+        , pos11 = getRowCol(11)
+        , pos12 = getRowCol(12)
+        , pos13 = getRowCol(13)
+        , pos14 = getRowCol(14)
+        , pos15 = getRowCol(15)
     };
 
     GameBoard::getRowCol( ()

@@ -1,20 +1,19 @@
 import QtQuick 2.0
+import  QtGraphicalEffects 1.0
 
 Rectangle {
-    id: root
+    id: rect
     property alias internalText: valueText
-    color: "lightgreen"
-    border.color: "black"
-    border.width: 1
+    color: "lightblue"
+    border.color: "green"
+    border.width: 2
     radius: 5
-
     Text {
         id: valueText
         text: "1"
-
         font.bold: true
-        font.pointSize: root.height * 0.33
-
-        anchors.centerIn: root
+        font.pointSize: rect.height * 0.33
+        anchors.centerIn: rect
     }
 }
+

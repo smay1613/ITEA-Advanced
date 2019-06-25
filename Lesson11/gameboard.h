@@ -1,4 +1,5 @@
 #pragma once
+#include <time.h>
 
 #include <vector>
 #include <QAbstractListModel>
@@ -36,6 +37,8 @@ public:
 
     using Position = std::pair<size_t, size_t>;
 
+
+    int condition_check();
 private:
     std::vector<Tile> m_raw_board;
     const size_t m_dimension;
@@ -48,5 +51,4 @@ private:
     bool isSizeValid(size_t size) const ;
 
     Position getRowCol (size_t index) const;
-
 };
