@@ -10,9 +10,9 @@ int main()
     std::cout << "task _ 1 -------------------------------------------- " << std::endl;
     std::vector<int> vec_1 { 1 , 2 , 3 , 4 , 5 };
     std::vector<int> vec_2 { 6 , 7 , 8 , 9 , 10 };
-    std::vector<int> vec_3 = functions::concat(vec_1, vec_2);
+    std::vector<int> vec_3 = concat(vec_1, vec_2);
     std::cout << "result : ";
-    functions::print_vector(vec_3);
+    print_vector(vec_3);
     std::cout << std::endl;
 
     //task_2
@@ -23,17 +23,17 @@ int main()
     std::cin >> N;
     std::cout << "Enter X : ";
     std::cin >> X;
-    std::list<int> list = functions::list(N, X);
+    std::list<int> list = Mylist(N, X);
     std::cout << "result : ";
-    functions::print_list(list);
+    print_list(list);
     std::cout << std::endl;
 
     //task _ 3
     std::cout << "task _ 3 -------------------------------------------- " << std::endl;
     std::forward_list<int> forward_list { 1 , 2 , 3 , 4 , 5 };
-    std::forward_list<int> new_forward_list = functions::reverse_forward_list(forward_list);
+    std::forward_list<int> new_forward_list = reverse_forward_list(forward_list);
     std::cout << "result : ";
-    functions::print_forward_list(new_forward_list);
+    print_forward_list(new_forward_list);
 
     return 0;
 }
