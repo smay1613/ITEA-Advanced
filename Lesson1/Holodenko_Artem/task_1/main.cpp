@@ -2,9 +2,9 @@
 #include <vector>
 
 
-template <typename type> void print_vector(std::vector<type> &value)
+template <typename type> void print_vector(std::vector<type> &values)
 {
-    for (const auto& element : value)
+    for (const auto& element : values)
     {
         std::cout << element << " ";
     }
@@ -16,7 +16,6 @@ template <typename type> std::vector<int> sum_vectors(std::vector<type> &data_1,
 {
     std::vector<int> data_3;
     data_3.reserve(data_1.size() + data_2.size());
-
 
     for (const auto& element : data_1)
     {
