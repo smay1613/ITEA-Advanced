@@ -1,10 +1,10 @@
 #include <iostream>
 #include <list>
+#include <math.h>
 
-
-template <typename type> void print_list(std::list<type> &value)
+template <typename type> void print_list(std::list<type> &values)
 {
-    for (const auto& element : value)
+    for (const auto& element : values)
     {
         std::cout << element << " ";
     }
@@ -22,19 +22,20 @@ int main()
     std::cout << "Enter X: ";
     std::cin >> X;
 
+    int numeric;
+    for (int i=1; i<=X; i++)
     {
-        int z = 1;
-        for (int i=0; i<X; i++)
+        numeric = pow(N, i);
+
+        int a = numeric;
+        while (a>9) {
+            a = a/10;
+        }
+        number_l.push_back(a);
+
+        if (numeric > 9)
         {
-            z = z * N;
-
-            int a=z;
-            while (a>9) {
-                a = a/10;
-            }
-            number_l.push_back(a);
-
-            number_l.push_back(z%10);
+            number_l.push_back(numeric%10);
         }
     }
 
@@ -42,3 +43,4 @@ int main()
 
     return 0;
 }
+
