@@ -17,7 +17,6 @@ template <typename type> std::vector<int> sum_vectors(std::vector<type> &data_1,
     std::vector<int> data_3;
     data_3.reserve(data_1.size() + data_2.size());
 
-
     for (const auto& element : data_1)
     {
         data_3.push_back(element);

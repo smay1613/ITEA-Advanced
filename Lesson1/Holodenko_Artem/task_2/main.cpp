@@ -1,6 +1,6 @@
 #include <iostream>
 #include <list>
-
+#include <math.h>
 
 template <typename type> void print_list(std::list<type> &value)
 {
@@ -23,18 +23,21 @@ int main()
     std::cin >> X;
 
     {
-        int z = 1;
-        for (int i=0; i<X; i++)
+        int numeric;
+        for (int i=1; i<=X; i++)
         {
-            z = z * N;
+            numeric = pow(N, i);
 
-            int a=z;
+            int a = numeric;
             while (a>9) {
                 a = a/10;
             }
             number_l.push_back(a);
+            if (numeric>9)
+            {
+                number_l.push_back(numeric%10);
+            }
 
-            number_l.push_back(z%10);
         }
     }
 
