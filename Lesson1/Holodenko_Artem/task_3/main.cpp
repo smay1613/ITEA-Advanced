@@ -2,9 +2,9 @@
 #include <forward_list>
 
 
-template <typename type> void print_forward_list(std::forward_list<type> &value)
+template <typename type> void print_forward_list(std::forward_list<type> &values)
 {
-    for (const auto& element : value)
+    for (const auto& element : values)
     {
         std::cout << element << " ";
     }
@@ -12,14 +12,14 @@ template <typename type> void print_forward_list(std::forward_list<type> &value)
 }
 
 
-template <typename type> void reverse_forward_list(std::forward_list<type> &value)
+template <typename type> void reverse_forward_list(std::forward_list<type> &values_1)
 {
-    std::forward_list<type> value2;
-    for (const auto& element : value)
+    std::forward_list<type> values_2;
+    for (const auto& element : values_1)
     {
-        value2.push_front(element);
+        values_2.push_front(element);
     }
-    value2.swap(value);
+    values_2.swap(values_1);
 }
 
 
