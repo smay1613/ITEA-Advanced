@@ -12,33 +12,42 @@ template <typename type> void print_vector(std::vector<type> &values)
 }
 
 
-template <typename type> std::vector<int> sum_vectors(std::vector<type> &data_1, std::vector<type> &data_2)
+std::vector<int> combine_vectors(const std::vector<int>::iterator &vector_1_begin, const std::vector<int>::iterator &vector_1_end,
+                                 const std::vector<int>::iterator &vector_2_begin, const std::vector<int>::iterator &vector_2_end)
 {
-    std::vector<int> data_3;
-    data_3.reserve(data_1.size() + data_2.size());
+    std::vector<int> vector;
+    std::vector<int>::size_type size = vector_1_end.base() - vector_1_begin.base() + vector_2_end.base() - vector_2_begin.base();
+    vector.reserve(size);
 
-    for (const auto& element : data_1)
+    for (std::vector<int>::iterator element = vector_1_begin; element.base() < vector_1_end.base(); element++)
     {
-        data_3.push_back(element);
-    }
-    for (const auto& element : data_2)
-    {
-        data_3.push_back(element);
+        vector.push_back(*element);
     }
 
-    return data_3;
+    for (std::vector<int>::iterator element = vector_2_begin; element.base() < vector_2_end.base(); element++)
+    {
+        vector.push_back(*element);
+    }
+
+    return vector;
 }
 
 
 int main()
 {
     std::vector<int> data_1 { 1, 2, 3, 4, 5 };
-    std::vector<int> data_2 { 5, 4, 3, 2, 1 };
+    std::vector<int> data_2 { 6, 5, 4, 3, 2, 1 };
     std::vector<int> data_3;
 
-    data_3 = sum_vectors(data_1, data_2);
+    std::vector<int>::iterator vector_1_begin = data_1.begin();
+    vector_1_begin++;
+    std::vector<int>::iterator vector_1_end = data_1.end();
+    vector_1_end--;
+
+    data_3 = combine_vectors(vector_1_begin, vector_1_end--, data_2.begin(), data_2.end());
     print_vector(data_3);
 
     return 0;
 }
+
 
