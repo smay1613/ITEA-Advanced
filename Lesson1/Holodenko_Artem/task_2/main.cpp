@@ -2,7 +2,7 @@
 #include <list>
 #include <math.h>
 
-template <typename type> void print_list(std::list<type> &values)
+void print_list(std::list<int> &values)
 {
     for (const auto& element : values)
     {
@@ -12,20 +12,13 @@ template <typename type> void print_list(std::list<type> &values)
 }
 
 
-int main()
+std::list<int> magic_number(const size_t number, const size_t degree)
 {
     std::list<int> number_l;
-    int N, X;
-
-    std::cout << "Enter N: ";
-    std::cin >> N;
-    std::cout << "Enter X: ";
-    std::cin >> X;
-
     int numeric;
-    for (int i=1; i<=X; i++)
+    for (int i=1; i<=degree; i++)
     {
-        numeric = pow(N, i);
+        numeric = pow(number, i);
 
         int a = numeric;
         while (a>9) {
@@ -38,7 +31,21 @@ int main()
             number_l.push_back(numeric%10);
         }
     }
+    return number_l;
+}
 
+
+int main()
+{
+
+    size_t number, degree;
+
+    std::cout << "Enter number: ";
+    std::cin >> number;
+    std::cout << "Enter degree: ";
+    std::cin >> degree;
+
+    std::list<int> number_l = magic_number(number, degree);
     print_list(number_l);
 
     return 0;
