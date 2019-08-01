@@ -12,7 +12,7 @@ void print_list(std::list<int> &values)
 }
 
 
-std::list<int> magic_number(const size_t number, const size_t degree)
+std::list<int> magicNumber(const size_t number, const size_t degree)
 {
     std::list<int> number_l;
     int numeric;
