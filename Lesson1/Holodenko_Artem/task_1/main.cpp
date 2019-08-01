@@ -12,7 +12,7 @@ template <typename type> void print_vector(std::vector<type> &values)
 }
 
 
-std::vector<int> combine_vectors(const std::vector<int>::iterator &vector_1_begin, const std::vector<int>::iterator &vector_1_end,
+std::vector<int> combineVectors(const std::vector<int>::iterator &vector_1_begin, const std::vector<int>::iterator &vector_1_end,
                                  const std::vector<int>::iterator &vector_2_begin, const std::vector<int>::iterator &vector_2_end)
 {
     std::vector<int> vector;
