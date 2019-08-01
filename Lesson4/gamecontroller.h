@@ -10,7 +10,7 @@ class GameController : public QObject
 public:
     explicit GameController(QObject *parent = nullptr);
 
-    Q_INVOKABLE GameBoard& getModel();
+    Q_INVOKABLE GameBoard* getModel();
 
 private:
     GameBoard gameBoard;

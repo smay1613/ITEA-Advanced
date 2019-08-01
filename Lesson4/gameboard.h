@@ -34,7 +34,10 @@ public:
 
     Q_INVOKABLE bool move (int index);
 
-    using Position = std::pair<size_t, size_t>;
+    struct Position {
+
+        std::pair<size_t, size_t> m_position;
+    };
 
 private:
     std::vector<Tile> m_raw_board;
@@ -44,9 +47,8 @@ private:
     const size_t m_hiddenElementValue;
 
     bool isBoardValid() const;
-    bool isPositionValid (const size_t position) const;
-    bool isSizeValid(size_t size) const ;
+    bool isPositionValid(const size_t position) const;
 
-    Position getRowCol (size_t index) const;
+    Position getRowCol(size_t index) const;
 
 };

@@ -19,7 +19,7 @@ GameBoard::GameBoard(QObject *parent, size_t board_dimension):
 void GameBoard::shuffle()
 {
     std::random_device rd;
-    std::mt19937 g(rd());
+    std::default_random_engine g(rd());
 
     do {
         std::shuffle(m_raw_board.begin(), m_raw_board.end(), g);
@@ -29,17 +29,16 @@ void GameBoard::shuffle()
 
 bool GameBoard::isBoardValid() const
 {
-    int inv = 0;
-    for (size_t i = 0; i < m_boardsize; ++i){
+    int inv {0};
+    for (size_t i {0}; i < m_boardsize; ++i) {
         if (m_raw_board[i].value){
-            for (size_t j = 0; j < i; ++j){
+            for (size_t j = 0; j < i; ++j) {
                 if (m_raw_board[j].value > m_raw_board[i].value){
                     ++inv;
                 }
             }
         }
     }
-
 
     const size_t start_point = 1;
 
@@ -49,12 +48,12 @@ bool GameBoard::isBoardValid() const
         }
     }
 
-    return ((inv % 2) == 0);
+    return (inv % 2) == 0;
 }
 
 bool GameBoard::isPositionValid(const size_t position) const
 {
-    return (position < m_boardsize);
+    return position < m_boardsize;
 }
 
 int GameBoard::rowCount(const QModelIndex &/*parent*/) const
@@ -68,14 +67,13 @@ QVariant GameBoard::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const size_t index_row = static_cast<size_t>(index.row());
+    const auto index_row {static_cast<size_t>(index.row())};
 
-    if (!isSizeValid(index_row)) {
+    if (!isPositionValid(index_row)) {
         return {};
     }
 
-    //return QVariant( static_cast<int>(m_raw_board[index_row].value) );
-    return QVariant::fromValue(m_raw_board[index_row].value);
+    return QVariant( static_cast<int>(m_raw_board[index_row].value) );
 }
 
 size_t GameBoard::hiddenElementValue() const
@@ -83,7 +81,8 @@ size_t GameBoard::hiddenElementValue() const
     return m_hiddenElementValue;
 }
 
-GameBoard::Position GameBoard::getRowCol(size_t index) const {
+GameBoard::Position GameBoard::getRowCol(size_t index) const
+{
     size_t row = index / m_dimension;
     size_t col = index % m_dimension;
 
@@ -113,8 +112,7 @@ namespace  {
             if (distance == 1) {
                 result = true;
             }
-        }
-        else if (first.second == second.second) {
+        } else if (first.second == second.second) {
             int distance = calc_distance (first.first, second.first);
             if (distance == 1) {
                 result = true;
@@ -146,9 +144,4 @@ bool GameBoard::move(int index)
     std::swap(hiddenElementIterator->value, m_raw_board[index].value);
     emit dataChanged(createIndex(0, 0), createIndex(m_boardsize, 0));
     return true;
-}
-
-bool GameBoard::isSizeValid(size_t size) const
-{
-    return size <= m_boardsize;
 }

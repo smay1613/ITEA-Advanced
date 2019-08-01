@@ -4,7 +4,7 @@ GameController::GameController(QObject *parent) : QObject(parent)
 {
 }
 
-GameBoard &GameController::getModel()
+GameBoard* GameController::getModel()
 {
-    return gameBoard;
+    return &gameBoard;
 }

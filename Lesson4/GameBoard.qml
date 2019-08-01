@@ -9,8 +9,6 @@ GridView {
 
     interactive: false
 
-    model: GameBoard_qml {}
-
     delegate: Item {
         id: _backgroundDelegate
         width: root.cellWidth
@@ -37,4 +35,7 @@ GridView {
         id: _gameController
     }
 
+    Component.onCompleted: {
+        root.model =  _gameController.getModel();
+    }
 }
