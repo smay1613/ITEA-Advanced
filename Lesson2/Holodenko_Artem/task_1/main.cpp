@@ -3,28 +3,26 @@
 #include <string>
 
 
-struct b_type
+struct bracket
 {
-    b_type(size_t _type) : type(_type)
-    {
-
-    }
+    bracket(size_t _type) : type(_type)
+    {}
     size_t type;
     size_t number = 1;
 };
 
 bool is_expression_valid(const std::string &str)
 {
-    std::stack<b_type> data_stack;
+    std::stack<bracket> data_stack;
     if (str.empty())
     {
         return false;
     }
     else
     {
-        for (int i=0; i<str.size(); i++)
+        for (const char& c : str)
         {
-            switch (str[i])
+            switch (c)
             {
                 case '(':
                     if (!data_stack.empty())
@@ -35,12 +33,12 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{0});
+                            data_stack.emplace(bracket{0});
                         }
                     }
                     else
                     {
-                        data_stack.emplace(b_type{0});
+                        data_stack.emplace(bracket{0});
                     }
                 break;
                 case ')':
@@ -56,7 +54,7 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{0});
+                            data_stack.emplace(bracket{0});
                         }
                     }
                     else
@@ -73,12 +71,12 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{1});
+                            data_stack.emplace(bracket{1});
                         }
                     }
                     else
                     {
-                        data_stack.emplace(b_type{1});
+                        data_stack.emplace(bracket{1});
                     }
                 break;
                 case ']':
@@ -94,7 +92,7 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{1});
+                            data_stack.emplace(bracket{1});
                         }
                     }
                     else
@@ -111,12 +109,12 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{2});
+                            data_stack.emplace(bracket{2});
                         }
                     }
                     else
                     {
-                        data_stack.emplace(b_type{2});
+                        data_stack.emplace(bracket{2});
                     }
                 break;
                 case '}':
@@ -132,7 +130,7 @@ bool is_expression_valid(const std::string &str)
                         }
                         else
                         {
-                            data_stack.emplace(b_type{2});
+                            data_stack.emplace(bracket{2});
                         }
                     }
                     else
