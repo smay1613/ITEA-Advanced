@@ -4,6 +4,18 @@
 #include <forward_list>
 #include "functions.h"
 
+//print function
+template <typename Container>
+void print(const Container &container)
+{
+    for(auto i = container.begin(); i != container.end(); ++i)
+    {
+        std::cout << *i << " ";
+    }
+    std::cout << std::endl;
+}
+
+
 int main()
 {
     //task_1
@@ -12,7 +24,7 @@ int main()
     std::vector<int> vec_2 { 6 , 7 , 8 , 9 , 10 };
     std::vector<int> vec_3 = concat(vec_1, vec_2);
     std::cout << "result : ";
-    print_vector(vec_3);
+    print(vec_3);
     std::cout << std::endl;
 
     //task_2
@@ -25,7 +37,7 @@ int main()
     std::cin >> X;
     std::list<int> list = Mylist(N, X);
     std::cout << "result : ";
-    print_list(list);
+    print(list);
     std::cout << std::endl;
 
     //task _ 3
@@ -33,7 +45,9 @@ int main()
     std::forward_list<int> forward_list { 1 , 2 , 3 , 4 , 5 };
     std::forward_list<int> new_forward_list = reverse_forward_list(forward_list);
     std::cout << "result : ";
-    print_forward_list(new_forward_list);
+    print(new_forward_list);
+
+    std::cout << "test" << std::endl;
 
     return 0;
 }
