@@ -12,7 +12,7 @@ template <typename type> void print_forward_list(std::forward_list<type> &values
 }
 
 
-template <typename type> void reverse_forward_list(std::forward_list<type> &values_1)
+template <typename type> void reverse(std::forward_list<type> &values_1)
 {
     std::forward_list<type> values_2;
     for (const auto& element : values_1)
