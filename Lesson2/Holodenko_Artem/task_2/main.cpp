@@ -8,16 +8,12 @@ struct node
 {
     node (int _n)
         : n(_n)
-    {
-
-    }
+    {}
     node (int _n, node *_left, node *_right)
         : n(_n),
           left(_left),
           right(_right)
-    {
-
-    }
+    {}
     int n = 0;
     struct node *left = nullptr;
     struct node *right = nullptr;
