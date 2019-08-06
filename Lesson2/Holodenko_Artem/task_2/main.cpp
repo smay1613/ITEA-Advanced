@@ -79,6 +79,10 @@ void print_nodes(node* element)
 
 void linkLevelNodes(node* element)
 {
+    if (element==nullptr)
+    {
+        return;
+    }
     std::queue<node*> nodes_queue;
     node* element_level_1 = nullptr;
     node* element_level_2 = element->left;
