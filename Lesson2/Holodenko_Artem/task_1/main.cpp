@@ -11,7 +11,7 @@ struct bracket
     size_t number = 1;
 };
 
-bool is_expression_valid(const std::string &str)
+bool isExpressionValid(const std::string &str)
 {
     std::stack<bracket> data_stack;
     if (str.empty())
