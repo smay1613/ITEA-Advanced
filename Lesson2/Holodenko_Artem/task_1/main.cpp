@@ -159,7 +159,7 @@ int main()
 
     std::cin >> data_str;
 
-    std::cout << is_expression_valid(data_str) << std::endl;
+    std::cout << isExpressionValid(data_str) << std::endl;
 
     return 0;
 }
