@@ -11,7 +11,7 @@ struct bracket
 };
 
 
-bool is_expression_valid(const std::string &str)
+bool isExpressionValid(const std::string &str)
 {
     std::stack<bracket> data_stack;
     if (str.empty())
@@ -178,31 +178,31 @@ public:
 
 TEST_F(is_expression_valid_test, 1)
 {
-    bool result = is_expression_valid(is_expression_valid_str_1);
+    bool result = isExpressionValid(is_expression_valid_str_1);
     EXPECT_EQ(result, is_expression_valid_result_1);
 }
 
 TEST_F(is_expression_valid_test, 2)
 {
-    bool result = is_expression_valid(is_expression_valid_str_2);
+    bool result = isExpressionValid(is_expression_valid_str_2);
     EXPECT_FALSE(result != is_expression_valid_result_2);
 }
 
 TEST_F(is_expression_valid_test, 3)
 {
-    bool result = is_expression_valid(is_expression_valid_str_3);
+    bool result = isExpressionValid(is_expression_valid_str_3);
     EXPECT_EQ(result, is_expression_valid_result_3);
 }
 
 TEST_F(is_expression_valid_test, 4)
 {
-    bool result = is_expression_valid(is_expression_valid_str_4);
+    bool result = isExpressionValid(is_expression_valid_str_4);
     EXPECT_EQ(result, is_expression_valid_result_4);
 }
 
 TEST_F(is_expression_valid_test, 5)
 {
-    bool result = is_expression_valid(is_expression_valid_str_5);
+    bool result = isExpressionValid(is_expression_valid_str_5);
     EXPECT_EQ(result, is_expression_valid_result_5);
 }
 
