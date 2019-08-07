@@ -6,11 +6,11 @@ bool isExpressionValid(const std::string &expression)
 {
     std::stack <char> bracecStack{};
 
-    for(size_t i = 0; i < expression.length(); ++i)
+    for(const auto &brace : expression)
     {
-        if(expression[i] == '(' || expression[i] == '{' || expression[i] == '[')
+        if(brace == '(' || brace == '{' || brace == '[')
         {
-            bracecStack.push(expression[i]);
+            bracecStack.push(brace);
         }
 
         if(bracecStack.empty())
@@ -21,36 +21,30 @@ bool isExpressionValid(const std::string &expression)
         if(!bracecStack.empty())
         {
             // ()
-            if(expression[i] == ')')
+            if(brace == ')')
             {
                 if(bracecStack.top() == '(')
                 {
                     bracecStack.pop();
-                    continue;
                 }
-                break;
             }
 
             // {}
-            if(expression[i] == '}')
+            if(brace == '}')
             {
                 if(bracecStack.top() == '{')
                 {
                     bracecStack.pop();
-                    continue;
                 }
-                break;
             }
 
             // []
-            if(expression[i] == ']')
+            if(brace == ']')
             {
                 if(bracecStack.top() == '[')
                 {
                     bracecStack.pop();
-                    continue;
                 }
-                break;
             }
         }
     }
