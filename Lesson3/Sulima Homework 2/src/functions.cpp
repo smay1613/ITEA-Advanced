@@ -54,13 +54,13 @@ bool isExpressionValid (const std::string& expression){
 }
 
 
-void linkLevelNodes(Node *root)
+void linkLevelNodes(node *root)
 {
-    std::queue<Node *> firstLevel;
+    std::queue<node *> firstLevel;
     firstLevel.push(root);
     while (!firstLevel.empty())
     {
-        std::queue<Node *> secondLevel;
+        std::queue<node *> secondLevel;
         if (firstLevel.front()->left != nullptr)
         {
             secondLevel.push(firstLevel.front()->left);
@@ -69,7 +69,7 @@ void linkLevelNodes(Node *root)
         {
             secondLevel.push(firstLevel.front()->right);
         }
-        Node* tmp = firstLevel.front();
+        node* tmp = firstLevel.front();
         firstLevel.pop();
         while (!firstLevel.empty())
         {

@@ -1,14 +1,14 @@
 #pragma once
 #include <string>
 
-struct Node
+struct node
 {
     int value{};
-    Node *left{nullptr};
-    Node *right{nullptr};
-    Node *level{nullptr};
+    node *left{nullptr};
+    node *right{nullptr};
+    node *level{nullptr};
 };
 
 bool isExpressionValid (const std::string& expression);
-void linkLevelNodes(Node *root);
+void linkLevelNodes(node *root);
 
