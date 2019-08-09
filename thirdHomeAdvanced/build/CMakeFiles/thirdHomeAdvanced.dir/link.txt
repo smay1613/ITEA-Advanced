@@ -1,0 +1,2 @@
+/usr/bin/ar qc libthirdHomeAdvanced.a  CMakeFiles/thirdHomeAdvanced.dir/thirdHomeAdvanced.cpp.o
+/usr/bin/ranlib libthirdHomeAdvanced.a

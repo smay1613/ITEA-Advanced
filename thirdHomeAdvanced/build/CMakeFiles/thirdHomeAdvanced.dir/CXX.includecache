@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jarvis/thirdHomeAdvanced/thirdHomeAdvanced.cpp
+thirdHomeAdvanced.hpp
+/home/jarvis/thirdHomeAdvanced/thirdHomeAdvanced.hpp
+
+/home/jarvis/thirdHomeAdvanced/thirdHomeAdvanced.hpp
+iostream
+-
+vector
+-
+list
+-
+forward_list
+-
+string
+-
+cmath
+-
+algorithm
+-
+iterator
+-
+fstream
+-
+set
+-
+map
+-
+
