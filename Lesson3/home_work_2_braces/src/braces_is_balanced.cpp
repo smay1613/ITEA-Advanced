@@ -20,31 +20,11 @@ bool isExpressionValid(const std::string &expression)
 
         if(!bracecStack.empty())
         {
-            // ()
-            if(brace == ')')
+            if((brace == ')' && bracecStack.top() == '(')
+                    || (brace == '}' && bracecStack.top() == '{')
+                    || (brace == ']' && bracecStack.top() == '['))
             {
-                if(bracecStack.top() == '(')
-                {
                     bracecStack.pop();
-                }
-            }
-
-            // {}
-            if(brace == '}')
-            {
-                if(bracecStack.top() == '{')
-                {
-                    bracecStack.pop();
-                }
-            }
-
-            // []
-            if(brace == ']')
-            {
-                if(bracecStack.top() == '[')
-                {
-                    bracecStack.pop();
-                }
             }
         }
     }
