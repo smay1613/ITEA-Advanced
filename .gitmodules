@@ -19,3 +19,6 @@
 [submodule "Lesson9/UnorderedMapLesson"]
 	path = Lesson9/UnorderedMapLesson
 	url = git@github.com:smay1613/UnorderedMapLesson.git
+[submodule "Lesson7/Qt-MVC-Example"]
+	path = Lesson7/Qt-MVC-Example
+	url = git@github.com:smay1613/Qt-MVC-Example.git
