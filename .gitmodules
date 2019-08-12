@@ -22,3 +22,6 @@
 [submodule "Lesson7/Qt-MVC-Example"]
 	path = Lesson7/Qt-MVC-Example
 	url = git@github.com:smay1613/Qt-MVC-Example.git
+[submodule "Lesson8/IteratorsLesson"]
+	path = Lesson8/IteratorsLesson
+	url = https://github.com/smay1613/IteratorsLesson
