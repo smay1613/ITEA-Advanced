@@ -81,7 +81,7 @@ public:
     std::string str_2 = "A A A a a.";
     std::string str_3 = "d c b a";
     std::string str_4 = "";
-    std::string str_5 = "test!!! !! ! a a a a a a a a";
+    std::string str_5 = "test  a a a a a a a a";
 
     std::vector<std::pair<std::string, size_t>> result_1 {{"a", 8}};
     std::vector<std::pair<std::string, size_t>> result_2 {{"a", 5}};

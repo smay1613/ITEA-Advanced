@@ -46,10 +46,10 @@ class get_unique_words_test : public ::testing::Test
 {
 public:
     std::string str_1 = "The European hare is one of the";
-    std::string str_2 = "Native to Europe and parts of Asia.";
+    std::string str_2 = "Native to Europe and parts of Asia";
     std::string str_3 = "a b c d";
     std::string str_4 = "";
-    std::string str_5 = "test!!! !! ! a a a a a a a a";
+    std::string str_5 = "test a a a a a a a a";
 
     std::set<std::string> result_1 {{"the"},{"european"},{"hare"}, {"is"}, {"one"}, {"of"}};
     std::set<std::string> result_2 {{"native"},{"to"},{"europe"}, {"and"}, {"parts"}, {"of"}, {"asia"}};
