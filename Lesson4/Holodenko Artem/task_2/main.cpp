@@ -12,7 +12,7 @@ std::vector<std::pair<std::string, size_t>> wordCounter(const std::string& text)
 
     for (const auto & element : text)
     {
-        if (!ispunct(element) && element != ' ')
+        if (element != ' ')
         {
             word += tolower(element);
         }

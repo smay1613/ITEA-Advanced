@@ -12,7 +12,7 @@ std::vector<std::string> getUniqueWords(const std::string& text)
 
     for (const auto & element : text)
     {
-        if (!ispunct(element) && element != ' ')
+        if (element != ' ')
         {
             word += tolower(element);
         }
@@ -40,7 +40,7 @@ std::vector<std::string> getUniqueWords(const std::string& text)
 
 int main()
 {
-    std::string text = "a b c d e";
+    std::string text = "a b c d  e ";
 
     for (const auto & element : getUniqueWords(text))
     {
