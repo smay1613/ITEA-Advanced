@@ -9,9 +9,6 @@
 	url = git@github.com:smay1613/QueueLesson.git
 [submodule "Lesson3 (Container adapters)/StackLesson"]
 	path = Lesson3 (Container adapters)/StackLesson
-	url = git@github.com:smay1613/StackLesson.git
-[submodule "Lesson5/SetLesson"]
-	path = Lesson5/SetLesson
 	url = git@github.com:smay1613/SetLesson.git
 [submodule "Lesson5 (Ordered associative containers)/MapLesson"]
 	path = Lesson5 (Ordered associative containers)/MapLesson
@@ -25,3 +22,6 @@
 [submodule "Lesson8 (Iterators)/IteratorsLesson"]
 	path = Lesson8 (Iterators)/IteratorsLesson
 	url = git@github.com:smay1613/IteratorsLesson.git
+[submodule "Lesson5 (Ordered associative containers)/SetLesson"]
+	path = Lesson5 (Ordered associative containers)/SetLesson
+	url = git@github.com:smay1613/SetLesson.git
