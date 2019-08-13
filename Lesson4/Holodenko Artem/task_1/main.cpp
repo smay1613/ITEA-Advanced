@@ -2,6 +2,7 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <sstream>
 
 
 std::vector<std::string> getUniqueWords(const std::string& text)
@@ -9,28 +10,16 @@ std::vector<std::string> getUniqueWords(const std::string& text)
     std::vector<std::string> words_vector;
     std::set<std::string> words_set;
     std::string word;
+    std::stringstream str_stream;
 
-    for (const auto & element : text)
+    str_stream << text;
+    while(!str_stream.eof())
     {
-        if (element != ' ')
-        {
-            word += tolower(element);
-        }
-        else
-        {
-            if (!word.empty())
-            {
-                words_set.insert(word);
-                word.clear();
-            }
-        }
-    }
-    if (!word.empty())
-    {
+        str_stream >> word;
         words_set.insert(word);
     }
 
-    for (const auto & element : words_set)
+    for (const auto& element : words_set)
     {
         words_vector.push_back(element);
     }
@@ -40,7 +29,7 @@ std::vector<std::string> getUniqueWords(const std::string& text)
 
 int main()
 {
-    std::string text = "a b c d  e ";
+    std::string text = "a b c d  e a  a ";
 
     for (const auto & element : getUniqueWords(text))
     {

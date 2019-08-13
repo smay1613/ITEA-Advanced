@@ -7,40 +7,25 @@
 
 std::vector<std::string> getUniqueWords(const std::string& text)
 {
-    std::vector<std::string> words_vector;
-    std::set<std::string> words_set;
-    std::string word;
+	std::vector<std::string> words_vector;
+	std::set<std::string> words_set;
+	std::string word;
+	std::stringstream str_stream;
 
-    for (const auto & element : text)
-    {
-        if (!ispunct(element) && element != ' ')
-        {
-            word += tolower(element);
-        }
-        else
-        {
-            if (!word.empty())
-            {
-                words_set.insert(word);
-                word.clear();
-            }
-        }
-    }
-    if (!word.empty())
-    {
-        words_set.insert(word);
-    }
+	str_stream << text;
+	while (!str_stream.eof())
+	{
+		str_stream >> word;
+		words_set.insert(word);
+	}
 
-    for (const auto & element : words_set)
-    {
-        words_vector.push_back(element);
-    }
+	for (const auto& element : words_set)
+	{
+		words_vector.push_back(element);
+	}
 
-    return words_vector;
+	return words_vector;
 }
-
-
-
 
 class get_unique_words_test : public ::testing::Test
 {
@@ -57,8 +42,6 @@ public:
     std::set<std::string> result_4 {};
     std::set<std::string> result_5 {{"test"},{"a"}};
 };
-
-
 
 TEST_F(get_unique_words_test, 1)
 {

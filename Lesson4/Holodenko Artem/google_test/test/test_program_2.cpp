@@ -7,71 +7,42 @@
 
 std::vector<std::pair<std::string, size_t>> wordCounter(const std::string& text)
 {
-    std::vector<std::pair<std::string, size_t>> words_vector;
-    std::map<std::string, size_t> words_map;
-    std::string word;
+	std::vector<std::pair<std::string, size_t>> words_vector;
+	std::map<std::string, size_t> words_map;
+	std::string word;
+	std::stringstream str_stream;
 
-    for (const auto & element : text)
-    {
-        if (!ispunct(element) && element != ' ')
-        {
-            word += tolower(element);
-        }
-        else
-        {
-            if (!word.empty())
-            {
-                if (words_map.empty())
-                {
-                    words_map.insert(std::make_pair(word, 1));
-                    word.clear();
-                }
-                else
-                {
-                    std::map<std::string, size_t>::iterator element = words_map.find(word);
+	str_stream << text;
+	while (!str_stream.eof())
+	{
+		str_stream >> word;
+		if (words_map.empty())
+		{
+			words_map.insert(std::make_pair(word, 1));
+			word.clear();
+		}
+		else
+		{
+			std::map<std::string, size_t>::iterator element = words_map.find(word);
 
-                    if (element != words_map.end())
-                    {
-                        element->second++;
-                        word.clear();
-                    }
-                    else {
-                        words_map.insert(std::make_pair(word, 1));
-                        word.clear();
-                    }
-                }
-            }
-        }
-    }
-    if (!word.empty())
-    {
-        if (words_map.empty())
-        {
-            words_map.insert(std::make_pair(word, 1));
-            word.clear();
-        }
-        else
-        {
-            std::map<std::string, size_t>::iterator element = words_map.find(word);
+			if (element != words_map.end())
+			{
+				element->second++;
+				word.clear();
+			}
+			else {
+				words_map.insert(std::make_pair(word, 1));
+				word.clear();
+			}
+		}
+	}
 
-            if (element != words_map.end())
-            {
-                element->second++;
-                word.clear();
-            }
-            else {
-                words_map.insert(std::make_pair(word, 1));
-                word.clear();
-            }
-        }
-    }
+	for (const auto & element : words_map)
+	{
+		words_vector.push_back(element);
+	}
 
-    for (const auto & element : words_map)
-    {
-        words_vector.push_back(element);
-    }
-
-    return words_vector;
+	return words_vector;
 }
 
 class word_counter_test : public ::testing::Test
