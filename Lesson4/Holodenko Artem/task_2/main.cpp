@@ -7,7 +7,6 @@
 
 std::vector<std::pair<std::string, size_t>> wordCounter(const std::string& text)
 {
-    std::vector<std::pair<std::string, size_t>> words_vector;
     std::map<std::string, size_t> words_map;
     std::string word;
     std::stringstream str_stream;
@@ -37,10 +36,7 @@ std::vector<std::pair<std::string, size_t>> wordCounter(const std::string& text)
         }
     }
 
-    for (const auto & element : words_map)
-    {
-        words_vector.push_back(element);
-    }
+    std::vector<std::pair<std::string, size_t>> words_vector {words_map.begin(), words_map.end()};
 
     return words_vector;
 }
