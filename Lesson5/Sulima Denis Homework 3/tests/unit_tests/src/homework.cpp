@@ -14,8 +14,6 @@ bool comparator ( std::vector<std::string> lhs, std::set<std::string> rhs )
         bool stringQqual{false};
         std :: transform( tmp_lhs.begin(), tmp_lhs.end(),
                           tmp_lhs.begin(), ::tolower );
-        // std::cout<< tmp_lhs << std::endl;
-
         for(auto & value_rhs: rhs){
             std::string tmp_rhs{value_rhs};
             std :: transform( tmp_rhs.begin(), tmp_rhs.end(),
@@ -33,7 +31,6 @@ bool comparator ( std::vector<std::string> lhs, std::set<std::string> rhs )
 
 bool comparatorForMap(std::vector<std::pair<std::string, size_t>>lhs, std::vector<std::pair<std::string, size_t>>rhs ){
     std::string sd{};
-    std::cout <<lhs[0].first<<  lhs[0].second << "              "<< rhs[0].second<< std:: endl << std:: endl;
     if(lhs[0].first == sd && rhs[0].first == sd && lhs[0].second == rhs[0].second){
         return true;
     }
@@ -56,7 +53,6 @@ bool comparatorForMap(std::vector<std::pair<std::string, size_t>>lhs, std::vecto
                 else
                     return false;
             }
-
         }
         if(stringQqual == false)
             return false;
@@ -75,13 +71,12 @@ INSTANTIATE_TEST_CASE_P(getUniqueWords,
                                            "123, 321, A, a,"
                                            ));
 
-int i {0};
+int numberTestResult {0};
 
 TEST_P(getUniqueWordsData, needTrue)
 {
     std::vector<std::string> result_vector = getUniqueWords(GetParam());
-
-    EXPECT_EQ(true, comparator(result_vector, correctResult[i++]));
+    EXPECT_EQ(true, comparator(result_vector, correctResult[numberTestResult++]));
 }
 
 
@@ -94,11 +89,12 @@ INSTANTIATE_TEST_CASE_P(wordCounter,
                                            "123, 321, A, a,"
                                              ));
 
-int n {0};
+int numberTestResultMap {0};
+
 TEST_P(wordCounterData, needTrue)
 {
     std::vector<std::pair<std::string, size_t>>result_vector = wordCounter(GetParam());
-    EXPECT_EQ(true, comparatorForMap(result_vector, correctResult[n++]));
+    EXPECT_EQ(true, comparatorForMap(result_vector, correctResult[numberTestResultMap++]));
 }
 
 
