@@ -1,21 +1,27 @@
-[submodule "Lesson1/ListLesson"]
-	path = Lesson1/ListLesson
+[submodule "Lesson1 (Sequence containers)/ListLesson"]
+	path = Lesson1 (Sequence containers)/ListLesson
 	url = git@github.com:smay1613/ListLesson.git
-[submodule "Lesson1/VectorLesson"]
-	path = Lesson1/VectorLesson
+[submodule "Lesson1 (Sequence containers)/VectorLesson"]
+	path = Lesson1 (Sequence containers)/VectorLesson
 	url = git@github.com:smay1613/VectorLesson.git
-[submodule "Lesson3/QueueLesson"]
-	path = Lesson3/QueueLesson
+[submodule "Lesson3 (Container adapters)/QueueLesson"]
+	path = Lesson3 (Container adapters)/QueueLesson
 	url = git@github.com:smay1613/QueueLesson.git
-[submodule "Lesson3/StackLesson"]
-	path = Lesson3/StackLesson
-	url = git@github.com:smay1613/StackLesson.git
-[submodule "Lesson5/SetLesson"]
-	path = Lesson5/SetLesson
+[submodule "Lesson3 (Container adapters)/StackLesson"]
+	path = Lesson3 (Container adapters)/StackLesson
 	url = git@github.com:smay1613/SetLesson.git
-[submodule "Lesson5/MapLesson"]
-	path = Lesson5/MapLesson
+[submodule "Lesson5 (Ordered associative containers)/MapLesson"]
+	path = Lesson5 (Ordered associative containers)/MapLesson
 	url = git@github.com:smay1613/MapLesson.git
-[submodule "Lesson9/UnorderedMapLesson"]
-	path = Lesson9/UnorderedMapLesson
+[submodule "Lesson9 (Unordered containers)/UnorderedMapLesson"]
+	path = Lesson9 (Unordered containers)/UnorderedMapLesson
 	url = git@github.com:smay1613/UnorderedMapLesson.git
+[submodule "Lesson7 (Qt MVC)/Qt-MVC-Example"]
+	path = Lesson7 (Qt MVC)/Qt-MVC-Example
+	url = git@github.com:smay1613/Qt-MVC-Example.git
+[submodule "Lesson8 (Iterators)/IteratorsLesson"]
+	path = Lesson8 (Iterators)/IteratorsLesson
+	url = git@github.com:smay1613/IteratorsLesson.git
+[submodule "Lesson5 (Ordered associative containers)/SetLesson"]
+	path = Lesson5 (Ordered associative containers)/SetLesson
+	url = git@github.com:smay1613/SetLesson.git
