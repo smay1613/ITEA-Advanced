@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsecondHomeAdvanced.a  CMakeFiles/secondHomeAdvanced.dir/secondHomeAdvanced.cpp.o
-/usr/bin/ranlib libsecondHomeAdvanced.a
