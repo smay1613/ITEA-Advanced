@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-set(This firstHomeAdvanced)  #name of main folder if another name will be error, I rename main folder to Example and do reconfigure->clean and 
+set(This secondHomeAdvanced)  #name of main folder if another name will be error, I rename main folder to Example and do reconfigure->clean and 
                    #rebuild all Right
 
 project(${This} C CXX)
@@ -18,10 +18,10 @@ add_subdirectory(googletest)
 
 #describing how we will build our code we define two variables Headers and Sources
 set(Headers
-    firstHomeAdvanced.hpp
+    secondHomeAdvanced.hpp
 )
 set(Sources
-    firstHomeAdvanced.cpp
+    secondHomeAdvanced.cpp
 )
 
 #we will split our code in two pieces - code and tests along the code
