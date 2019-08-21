@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "../secondHomeAdvanced.hpp"
+#include "../thirdHomeAdvanced.hpp"
 
 //using ::testing::Test; 
 //------------------ usual two tests -----------------------
@@ -28,43 +28,47 @@ TEST(ExampleTests, DemonstrateGTestMacros){
      EXPECT_EQ(true, result) << "i = " << i << std::endl;
     */
 
-
-
-// regex has search, match and verifying methods for strings
-TEST(ExampleTests, isExpressionValid){ 
-   
-   std::string expressionInString = {"()()))"};
-   std::string & linkToStr = expressionInString;
-   bool expresionIsValid;
-
-   expresionIsValid = isExpressionValid(linkToStr);
-
-   EXPECT_EQ(false, expresionIsValid)  << std::endl;
-
-   expressionInString = {"{}{}{}"};
-   expresionIsValid = isExpressionValid(linkToStr);
-
-   EXPECT_EQ(true, expresionIsValid)  << std::endl;
-
-}
-
-TEST(ExampleTests, linkLevelNodes){ 
-   
-    Node* binaryTree = nullptr;
+TEST(ExampleTests, getUniqueWords){ 
     
-    binaryTree = new Node(15);
-    binaryTree->left = new Node(10);
-    binaryTree->right = new Node(20);
-    binaryTree->left->left = new Node(8);
-    binaryTree->left->right = new Node(12);
-    binaryTree->right->left = new Node(16);
-    binaryTree->right->right = new Node(25);
 
-    linkLevelNodes(binaryTree);
-
-    //EXPECT_EQ(false, expresionIsValid)  << std::endl;
-    //ASSERT_THAT(*binaryTree, ::testing::ElementsAre("15", "20", "10", "25", "16", "12", "8"));
-
+	char filename[] = "test.txt"; 
+    std::ofstream fs(filename, std::ios::trunc); 
+    fs << "geeks for geeks quiz code geeks practice for qa"; 
+    fs.close(); 
+  
+	std::vector<std::string> testStringWithResult;
+    testStringWithResult = getUniqueWords(filename);
+	//std::cout << testStringWithResult << std::endl;
+    //EXPECT_THAT(resultVector, ::testing::UnorderedElementsAreArray(testVector)); 
+    //ASSERT_THAT(resultVector, ::testing::ElementsAre(5, 6, 7, 8, 9, 12, 13, 14, 15, 16));
 }
+
+TEST(ExampleTests, wordCounter){ 
+    
+
+	typedef std::multiset<std::string> mySet;
+    typedef std::multiset<std::string>::iterator mySetItr;
+
+    mySet mWords;
+
+    mWords.insert("Apple");
+    mWords.insert("Apple");
+    mWords.insert("Bubble");
+	mWords.insert("Orange");
+	mWords.insert("Orange");
+
+    mySetItr it = std::begin(mWords), itend = std::end(mWords);
+    std::for_each<mySetItr&>(it, itend, [&mWords, &it] (const std::string& word)
+    {
+        auto p = mWords.equal_range(word);
+        int count = static_cast<int>(std::distance(p.first, p.second));
+        std::cout << word << " " << count << std::endl;
+        std::advance(it, count - 1);
+    });
+
+    //EXPECT_THAT(resultVector, ::testing::UnorderedElementsAreArray(testVector)); 
+    //ASSERT_THAT(resultVector, ::testing::ElementsAre(5, 6, 7, 8, 9, 12, 13, 14, 15, 16));
+}
+
 
 //---------------------- end usual two tests -----------------

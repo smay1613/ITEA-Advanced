@@ -17,7 +17,7 @@ add_executable(${This} ${Sources})
 
 target_link_libraries(${This} PUBLIC
     gtest_main
-    secondHomeAdvanced
+    thirdHomeAdvanced
 )
 
 #write unit tests name and command to run them
