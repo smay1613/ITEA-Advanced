@@ -9,7 +9,7 @@
 	url = git@github.com:smay1613/QueueLesson.git
 [submodule "Lesson3 (Container adapters)/StackLesson"]
 	path = Lesson3 (Container adapters)/StackLesson
-	url = git@github.com:smay1613/SetLesson.git
+	url = git@github.com:smay1613/StackLesson.git
 [submodule "Lesson5 (Ordered associative containers)/MapLesson"]
 	path = Lesson5 (Ordered associative containers)/MapLesson
 	url = git@github.com:smay1613/MapLesson.git
@@ -25,3 +25,9 @@
 [submodule "Lesson5 (Ordered associative containers)/SetLesson"]
 	path = Lesson5 (Ordered associative containers)/SetLesson
 	url = git@github.com:smay1613/SetLesson.git
+[submodule "Lesson10 (Qt Databases)/Qt-Databases"]
+	path = Lesson10 (Qt Databases)/Qt-Databases
+	url = git@github.com:smay1613/Qt-AddressBook.git
+[submodule "Lesson11 (Qt Networking)/Qt-Networking"]
+	path = Lesson11 (Qt Networking)/Qt-Networking
+	url = git@github.com:smay1613/Qt-AddressBook.git
