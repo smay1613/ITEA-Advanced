@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/selim/C++/C++advanced/QTCreator/lesson2/HT2_1/HT2_1/test/HT2_1gtest.cpp
+stack
+-
+gtest/gtest.h
+/home/selim/C++/C++advanced/QTCreator/lesson2/HT2_1/HT2_1/test/gtest/gtest.h
+

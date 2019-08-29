@@ -1,0 +1,3 @@
+/home/selim/C++/C++advanced/QTCreator/lesson1/Corected/HT_1_3_corected/build-HT1_3corected-Desktop_Qt_5_12_4_GCC_64bit-Default/CMakeFiles/edit_cache.dir
+/home/selim/C++/C++advanced/QTCreator/lesson1/Corected/HT_1_3_corected/build-HT1_3corected-Desktop_Qt_5_12_4_GCC_64bit-Default/CMakeFiles/HT1_3corected.dir
+/home/selim/C++/C++advanced/QTCreator/lesson1/Corected/HT_1_3_corected/build-HT1_3corected-Desktop_Qt_5_12_4_GCC_64bit-Default/CMakeFiles/rebuild_cache.dir
