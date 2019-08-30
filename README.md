@@ -1,4 +1,4 @@
-How to clone:
+#### How to clone: ####
 
 ~~~
 git clone git@github.com:smay1613/Qt-AddressBook.git
