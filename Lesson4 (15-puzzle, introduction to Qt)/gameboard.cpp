@@ -18,8 +18,8 @@ GameBoard::GameBoard(QObject *parent, size_t board_dimension):
 
 void GameBoard::shuffle()
 {
-    std::random_device rd;
-    std::default_random_engine g(rd());
+    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+    static std::mt19937 g(seed);
 
     do {
         std::shuffle(m_raw_board.begin(), m_raw_board.end(), g);

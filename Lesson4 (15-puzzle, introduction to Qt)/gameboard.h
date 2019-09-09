@@ -34,10 +34,7 @@ public:
 
     Q_INVOKABLE bool move (int index);
 
-    struct Position {
-
-        std::pair<size_t, size_t> m_position;
-    };
+    using Position = std::pair<size_t, size_t>;
 
 private:
     std::vector<Tile> m_raw_board;
