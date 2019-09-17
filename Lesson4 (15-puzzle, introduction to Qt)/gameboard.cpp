@@ -31,18 +31,16 @@ bool GameBoard::isBoardValid() const
 {
     int inv {0};
     for (size_t i {0}; i < m_boardsize; ++i) {
-        if (m_raw_board[i].value){
-            for (size_t j = 0; j < i; ++j) {
-                if (m_raw_board[j].value > m_raw_board[i].value){
-                    ++inv;
-                }
+        for (size_t j = 0; j < i; ++j) {
+            if (m_raw_board[j].value > m_raw_board[i].value){
+                ++inv;
             }
         }
     }
 
     const size_t start_point = 1;
 
-    for (size_t i = 0; i < m_boardsize; ++i){
+    for (size_t i = 0; i < m_boardsize; ++i) {
         if (m_raw_board[i].value == m_boardsize){
             inv += start_point + i / m_dimension;
         }
@@ -73,7 +71,7 @@ QVariant GameBoard::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    return QVariant( static_cast<int>(m_raw_board[index_row].value) );
+    return QVariant(static_cast<int>(m_raw_board[index_row].value));
 }
 
 size_t GameBoard::hiddenElementValue() const
@@ -99,9 +97,7 @@ namespace  {
         const auto calc_distance = [](size_t pos1, size_t pos2){
             int distance = static_cast<int>(pos1);
             distance -= static_cast<int>(pos2);
-            if (distance < 0) {
-                distance *= -1;
-            }
+            distance = std::abs(distance);
             return distance;
         };
 
@@ -131,16 +127,15 @@ bool GameBoard::move(int index)
 
     Position positionOfIndex {getRowCol(index)};
 
-//    auto l = [](const Tile)
-
     auto hiddenElementIterator = std::find(m_raw_board.begin(), m_raw_board.end(), m_hiddenElementValue);
 
     Q_ASSERT(hiddenElementIterator != m_raw_board.end());
     Position hiddenElementPosition {getRowCol(std::distance(m_raw_board.begin(), hiddenElementIterator))};
 
     if (!is_adjacent(positionOfIndex, hiddenElementPosition)) {
-        return  false;
+        return false;
     }
+
     std::swap(hiddenElementIterator->value, m_raw_board[index].value);
     emit dataChanged(createIndex(0, 0), createIndex(m_boardsize, 0));
     return true;

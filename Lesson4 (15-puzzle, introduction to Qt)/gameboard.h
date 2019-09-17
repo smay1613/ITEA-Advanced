@@ -3,8 +3,6 @@
 #include <vector>
 #include <QAbstractListModel>
 
-// https://www.youtube.com/watch?v=9BcAYDlpuT8&t=1215s
-
 class GameBoard : public QAbstractListModel
 {
     Q_OBJECT
