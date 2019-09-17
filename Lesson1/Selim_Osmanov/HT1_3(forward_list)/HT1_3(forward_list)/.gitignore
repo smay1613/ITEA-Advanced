@@ -73,3 +73,9 @@ Thumbs.db
 
 #CMakefile
 *.txt.user
+
+#Googletest
+googletest
+
+#Git
+.git
