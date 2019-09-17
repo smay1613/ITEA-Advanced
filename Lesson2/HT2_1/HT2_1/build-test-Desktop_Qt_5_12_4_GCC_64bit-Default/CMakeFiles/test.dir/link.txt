@@ -1,1 +1,0 @@
-/usr/bin/g++      CMakeFiles/test.dir/HT2_1gtest.cpp.o  -o test -rdynamic 
