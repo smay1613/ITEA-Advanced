@@ -31,3 +31,6 @@
 [submodule "Lesson11 (Qt Networking)/Qt-Networking"]
 	path = Lesson11 (Qt Networking)/Qt-Networking
 	url = git@github.com:smay1613/Qt-AddressBook.git
+[submodule "Lesson4 (15-puzzle, introduction to Qt)/15puzzle"]
+	path = Lesson4 (15-puzzle, introduction to Qt)/15puzzle
+	url = git@github.com:smay1613/15-puzzleQt.git
