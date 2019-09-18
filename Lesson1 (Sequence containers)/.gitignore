@@ -70,3 +70,19 @@ Thumbs.db
 # --------
 *.dll
 *.exe
+
+# My changes
+# --------
+*/CMakeFiles/
+CMakeCache.txt
+*.user
+*.4.8-pre1
+*.cmake
+Makefile
+CMakeFiles/*
+Testing/*
+googletest-build/*
+googletest-download/*
+googletest-src/*
+main 
+simple
