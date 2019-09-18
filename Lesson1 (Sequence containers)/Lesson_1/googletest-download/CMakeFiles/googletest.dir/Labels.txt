@@ -1,0 +1,14 @@
+# Target labels
+ googletest
+# Source files and their labels
+/home/anyo/Projects/GoogleTests/googletest-download/CMakeFiles/googletest
+/home/anyo/Projects/GoogleTests/googletest-download/CMakeFiles/googletest.rule
+/home/anyo/Projects/GoogleTests/googletest-download/CMakeFiles/googletest-complete.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-install.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-mkdir.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-download.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-update.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-patch.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-configure.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-build.rule
+/home/anyo/Projects/GoogleTests/googletest-download/googletest-prefix/src/googletest-stamp/googletest-test.rule

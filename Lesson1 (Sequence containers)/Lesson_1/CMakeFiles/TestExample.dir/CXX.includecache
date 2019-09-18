@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/anyo/Projects/GoogleTests/library.cpp
+iostream
+-
+library.h
+/home/anyo/Projects/GoogleTests/library.h
+
+/home/anyo/Projects/GoogleTests/library.h
+forward_list
+-
+vector
+-
+list
+-
+iterator
+-
+
