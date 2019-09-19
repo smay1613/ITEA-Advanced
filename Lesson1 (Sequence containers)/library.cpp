@@ -16,18 +16,18 @@ std::vector<int> combineVectors (const std::vector<int>::iterator& begin1, const
 
 size_t magicNumber(const size_t number, const size_t degree)
 {
-    size_t wantedNumber = 0;
-    std::list<int> numbers;
+    long wantedNumber = 0;
+    std::list<long> numbers;
     numbers.push_back(number);
 
     for (auto&& it = numbers.begin(); it != numbers.end(); ++it) {
         if (numbers.size() < degree)
             numbers.push_back(*(--numbers.end()) * *(numbers.begin()));
 
-        int first = *it;
-        int last = (*it) % 10;
+        long first = *it;
+        long last = (*it) % 10;
 
-        while (first > 10)
+        while (first > 9)
             first /= 10;
 
         wantedNumber = wantedNumber * 100 + first * 10 + last;

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(TestExample)
+project(Lesson1)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -38,5 +38,5 @@ enable_testing()
 add_subdirectory(test)
 
 set(SOURCE_FILES library.cpp library.h)
-add_library(TestExample ${SOURCE_FILES})
+add_library(Lesson1 ${SOURCE_FILES})
 
