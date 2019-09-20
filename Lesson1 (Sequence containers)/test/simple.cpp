@@ -27,6 +27,16 @@ TEST(Vector_Tests, Size_Test_Empty)
     EXPECT_EQ(2 * test_size, combineVectors(a.begin(), a.end(), b.begin(), b.end()).size());
 }
 
+TEST(Vector_Tests, Size_Test_Half_Empty)
+{
+    uint test_size1 = 0;
+    uint test_size2 = 25;
+    std::vector<int> a (test_size1);
+    std::vector<int> b (test_size2);
+
+    EXPECT_EQ(test_size1 + test_size2, combineVectors(a.begin(), a.end(), b.begin(), b.end()).size());
+}
+
 TEST(Vector_Tests, Size_Test_Wrong)
 {
     char test_size = 'k';
@@ -63,7 +73,7 @@ TEST(MagicNumber_Tests, Test_One)
 
 TEST(List_Tests, Reverse_Test_1)
 {
-    std::forward_list<int> a {1, 2, 3};
+    std::forward_list<int> a {8, 4, 2};
     std::forward_list<int> b = a;
     b.reverse();
     reverse(a);
@@ -76,6 +86,34 @@ TEST(List_Tests, Reverse_Test_2)
     for (int i = 0; i < 1000000; ++i){
         a.push_front(i);
     }
+    std::forward_list<int> b = a;
+    b.reverse();
+    reverse(a);
+    EXPECT_EQ(b, a);
+}
+
+TEST(List_Tests, Reverse_Test_Empty)
+{
+    std::forward_list<int> a {};
+    std::forward_list<int> b = a;
+    b.reverse();
+    reverse(a);
+    EXPECT_EQ(b, a);
+}
+
+TEST(List_Tests, Reverse_Test_One_Entry)
+{
+    std::forward_list<int> a {69};
+    std::forward_list<int> b = a;
+    b.reverse();
+    reverse(a);
+    EXPECT_EQ(b, a);
+}
+
+TEST(List_Tests, Reverse_Test_Ptr)
+{
+    int *p;
+    std::forward_list<int> a {*p, *(p + 1), *(p + 2)};
     std::forward_list<int> b = a;
     b.reverse();
     reverse(a);
