@@ -39,7 +39,7 @@ TEST(Vector_Tests, Size_Test_Half_Empty)
 
 TEST(Vector_Tests, Size_Test_Wrong)
 {
-    char test_size = 'k';
+    uint test_size = 35;
     std::vector<int> a (test_size);
     std::vector<int> b (test_size);
 
@@ -68,13 +68,13 @@ TEST(MagicNumber_Tests, Test_Zero)
 
 TEST(MagicNumber_Tests, Test_One)
 {
-    EXPECT_EQ(10, magicNumber(10,0));
+    EXPECT_EQ(0, magicNumber(10,0));
 }
 
 TEST(List_Tests, Reverse_Test_1)
 {
     std::forward_list<int> a {8, 4, 2};
-    std::forward_list<int> b = a;
+    std::forward_list<int> b {a};
     b.reverse();
     reverse(a);
     EXPECT_EQ(b, a);
@@ -86,7 +86,7 @@ TEST(List_Tests, Reverse_Test_2)
     for (int i = 0; i < 1000000; ++i){
         a.push_front(i);
     }
-    std::forward_list<int> b = a;
+    std::forward_list<int> b {a};
     b.reverse();
     reverse(a);
     EXPECT_EQ(b, a);
@@ -95,7 +95,7 @@ TEST(List_Tests, Reverse_Test_2)
 TEST(List_Tests, Reverse_Test_Empty)
 {
     std::forward_list<int> a {};
-    std::forward_list<int> b = a;
+    std::forward_list<int> b {a};
     b.reverse();
     reverse(a);
     EXPECT_EQ(b, a);
@@ -104,7 +104,7 @@ TEST(List_Tests, Reverse_Test_Empty)
 TEST(List_Tests, Reverse_Test_One_Entry)
 {
     std::forward_list<int> a {69};
-    std::forward_list<int> b = a;
+    std::forward_list<int> b {a};
     b.reverse();
     reverse(a);
     EXPECT_EQ(b, a);
@@ -114,7 +114,7 @@ TEST(List_Tests, Reverse_Test_Ptr)
 {
     int *p;
     std::forward_list<int> a {*p, *(p + 1), *(p + 2)};
-    std::forward_list<int> b = a;
+    std::forward_list<int> b {a};
     b.reverse();
     reverse(a);
     EXPECT_EQ(b, a);
