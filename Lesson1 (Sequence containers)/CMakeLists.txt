@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Test_Funk LANGUAGES CXX)
+project(Test LANGUAGES CXX)
 
 
 
@@ -22,9 +22,9 @@ endif ()
 
 include_directories(${GTestSrc} ${GTestSrc}/include ${GMockSrc} ${GMockSrc}/include)
 
-add_executable(Test_Funk main.cpp Funk.cpp Funk.h tst_test_funk.h
+add_executable(Test main.cpp TaskFunctions.cpp TaskFunctions.h tst_test.h
                ${GTestSrc}/src/gtest-all.cc
                ${GMockSrc}/src/gmock-all.cc)
-add_test(Test_Funk COMMAND Test_Funk)
-target_link_libraries(Test_Funk PRIVATE Threads::Threads)
+add_test(Test COMMAND Test)
+target_link_libraries(Test PRIVATE Threads::Threads)
 

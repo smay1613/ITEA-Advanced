@@ -1,5 +1,5 @@
-#ifndef FUNK_H
-#define FUNK_H
+#ifndef TASKFUNCTIONS_H
+#define TASKFUNCTIONS_H
 #include <iostream>
 #include <vector>
 #include <forward_list>
@@ -10,4 +10,5 @@ std::vector<int> combineVectors(std::vector<int>::const_iterator begin1, std::ve
 
 size_t magicNumber(const size_t digit, const size_t num);
 void reverse(std::forward_list<int>& listToReverse);
-#endif // FUNK_H
+
+#endif // TASKFUNCTIONS_H

@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
-#include "Funk.h"
+#include "TaskFunctions.h"
 
 using namespace testing;
 
@@ -17,7 +17,6 @@ TEST(combineVectors, Test1)
     std::vector<int>::const_iterator b2 = b.begin();
     std::vector<int>::const_iterator e2 = b.end();
     EXPECT_EQ(result, combineVectors(b1,e1,b2,e2));
-    //ASSERT_THAT(0, Eq(0));
 }
 
 TEST(combineVectors, Test2)
@@ -30,7 +29,6 @@ TEST(combineVectors, Test2)
     std::vector<int>::const_iterator b2 = b.begin();
     std::vector<int>::const_iterator e2 = b.end();
     EXPECT_EQ(result, combineVectors(b1,e1,b2,e2));
-    //ASSERT_THAT(0, Eq(0));
 }
 TEST(combineVectors, Test3)
 {
@@ -42,7 +40,6 @@ TEST(combineVectors, Test3)
     std::vector<int>::const_iterator b2 = b.begin();
     std::vector<int>::const_iterator e2 = b.end();
     EXPECT_EQ(result, combineVectors(b1,e1,b2,e2));
-    //ASSERT_THAT(0, Eq(0));
 }
 
 TEST(combineVectors, Test4)
@@ -55,7 +52,6 @@ TEST(combineVectors, Test4)
     std::vector<int>::const_iterator b2 = b.begin();
     std::vector<int>::const_iterator e2 = b.end();
     EXPECT_EQ(result, combineVectors(b1,e1,b2,e2));
-    //ASSERT_THAT(0, Eq(0));
 }
 
 TEST(combineVectors, Test5)
@@ -68,7 +64,6 @@ TEST(combineVectors, Test5)
     std::vector<int>::const_iterator b2 = b.begin();
     std::vector<int>::const_iterator e2 = b.end();
     EXPECT_EQ(result, combineVectors(b1,e1,b2,e2));
-    //ASSERT_THAT(0, Eq(0));
 }
 
 TEST(magicNumber, Test1)
