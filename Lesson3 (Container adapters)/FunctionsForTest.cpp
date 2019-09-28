@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <memory>
 #include "FunctionsForTest.h"
 
 bool isExpressionValid (const std::string& expression)
@@ -41,14 +42,14 @@ bool isExpressionValid (const std::string& expression)
     return result;
 }
 
-void linkSamelevel(struct node *t)
+void linkSamelevel(std::shared_ptr<node> t)
 {
-    std::queue <node*> q;
+    std::queue <std::shared_ptr<node>> q;
     q.push(t);
     q.push(nullptr);
     while (!q.empty())
     {
-        node *p = q.front();
+        std::shared_ptr<node> p = q.front();
         q.pop();
         if (p != nullptr)
         {

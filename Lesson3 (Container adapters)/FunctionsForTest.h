@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include <stack>
+#include <memory>
 
 struct node
 {
     int n;
-    struct node* left;
-    struct node* right;
-    struct node* level;
+    std::shared_ptr<node> left;
+    std::shared_ptr<node> right;
+    std::shared_ptr<node> level;
 };
 
 bool isExpressionValid (const std::string& expression);
