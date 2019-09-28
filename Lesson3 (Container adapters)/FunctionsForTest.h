@@ -13,6 +13,8 @@ struct node
     std::shared_ptr<node> level;
 };
 
+void linkSamelevel(std::shared_ptr<node> t);
+
 bool isExpressionValid (const std::string& expression);
 
 #endif // FUNCTIONSFORTEST_H
