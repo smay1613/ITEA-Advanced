@@ -32,10 +32,10 @@ TEST(Parentheses_Test, Test_3)
 }
 TEST(Parentheses_Test, Test_4)
 {
-    std::string input {"{{}[[()]()]{}}"};
+    std::string input {"{{}[[]()]{}}({])"};
     bool answer = isExpressionValid(input);
 
-    EXPECT_EQ(answer, true);
+    EXPECT_EQ(answer, false);
 }
 TEST(Parentheses_Test, Test_5)
 {
