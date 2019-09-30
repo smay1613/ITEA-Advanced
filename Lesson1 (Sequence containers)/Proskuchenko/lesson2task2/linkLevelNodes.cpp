@@ -15,8 +15,8 @@ void linkLevelNodes(node* root) {
   }
   std::queue<node*> ptrNode;
   ptrNode.push(root);
-  size_t NextLevelNodes = 0;
-  size_t expectedNodes = 2;
+  size_t NextLevelNodes {0};
+  size_t expectedNodes {2};
   bool isPointToNext = true;
   node* previusNodePtr = nullptr;
   while (!ptrNode.empty()) {

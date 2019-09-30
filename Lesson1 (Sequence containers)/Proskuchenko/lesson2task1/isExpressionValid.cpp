@@ -1,30 +1,27 @@
-#include <forward_list>
+#include <stack>
 #include <string>
+#include <map>
 
 inline char OpositBracket(const char BRACKET) {
-  if (BRACKET == '(') {return ')';}
-  if (BRACKET == '[') {return ']';}
-  if (BRACKET == '{') {return '}';}
-  return 0;
+  std::map<char, char> bracketsMap {{'(',')'},{'[',']'},{'{','}'}};
+  return bracketsMap.at(BRACKET);
 }
 
-bool isExpressionValid (const std::string& EXPRESSION) {
-  std::forward_list<char> flist_brackets;
-  const size_t EXPRESSION_SIZE = EXPRESSION.size();
-  for (size_t position = 0; position < EXPRESSION_SIZE; ++position) {
-    char bracket = EXPRESSION.at(position);
+bool isExpressionValid (const std::string& expression) {
+  std::stack<char> bracketsStack;
+  for (char bracket : expression) {
     if (bracket == '(' ||
         bracket == '[' ||
         bracket == '{') {
-      flist_brackets.push_front(bracket);
+      bracketsStack.push(bracket);
     } else {
-      if (flist_brackets.empty()) {return false;}
-      if (bracket != OpositBracket(flist_brackets.front())) {
+      if (bracketsStack.empty()) {return false;}
+      if (bracket != OpositBracket(bracketsStack.top())) {
         return false;
       }
-      flist_brackets.pop_front();
+      bracketsStack.pop();
     }
   }
-  return flist_brackets.empty();
+  return bracketsStack.empty();
 }
 
