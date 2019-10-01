@@ -7,19 +7,18 @@
 bool isExpressionValid (const std::string& expression)
 {
     std::stack<char> receivedMessage;
+    std::map<char, char> openBracketsMap {{'(', ')'}, {'[', ']'}, {'{', '}'}};
+    std::map<char, char> closedBracketsMap {{')', '('}, {']', '['}, {'}', '{'}};
 
     for(const auto& element : expression)
     {
-        if(element == '(' || element == '[' || element == '{')
+        if(openBracketsMap.find(element) != openBracketsMap.end())
         {
             receivedMessage.push(element);
         }
         else
         {
-            if ( !receivedMessage.empty() &&
-                ((element == ')' && receivedMessage.top() == '(') ||
-                (element == ']' && receivedMessage.top() == '[') ||
-                (element == '}' && receivedMessage.top() == '{')))
+            if (!receivedMessage.empty() && closedBracketsMap.find(element)->second == receivedMessage.top())
             {
                 receivedMessage.pop();
             }
@@ -57,6 +56,11 @@ int getNodeLevel (node* nodeToObserve, node* nodeTofind, int level)
 
 void linkLevelNodes(node* root)
 {
+    if(root == nullptr)
+    {
+        return;
+    }
+
     std::queue<node*> discoveredNodes;
     discoveredNodes.push(root);
 
