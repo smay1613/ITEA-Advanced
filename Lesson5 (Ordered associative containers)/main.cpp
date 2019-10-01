@@ -1,7 +1,6 @@
 #include "tst_hw_3_tests.h"
 
 #include <gtest/gtest.h>
-#include <algorithm>
 
 struct caseInsensitiveComparator {
     bool operator()(const std::string& lhs, const std::string& rhs) const {
