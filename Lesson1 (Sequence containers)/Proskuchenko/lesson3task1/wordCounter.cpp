@@ -1,9 +1,7 @@
-#include <set>
 #include <map>
 #include <sstream>
 #include <vector>
 #include <functional>
-#include <algorithm>
 
 std::string str_tolower(std::string s) {
   std::transform(s.begin(), s.end(), s.begin(),
