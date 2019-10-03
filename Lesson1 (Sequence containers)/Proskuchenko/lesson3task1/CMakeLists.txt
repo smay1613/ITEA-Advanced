@@ -44,9 +44,6 @@ enable_testing()
 add_subdirectory(test)
 endif()
 
-set(SOURCE_FILES1 getUniqueWordsV1.cpp)
-add_library(for_testing1 ${SOURCE_FILES1})
-
 set(SOURCE_FILES2 wordCounter.cpp)
 add_library(for_testing2 ${SOURCE_FILES2})
 

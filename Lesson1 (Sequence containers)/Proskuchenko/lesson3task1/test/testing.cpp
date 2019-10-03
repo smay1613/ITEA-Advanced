@@ -7,6 +7,79 @@ using ::testing::_;
 
 TEST(Test1, getUniqueWords) {
   std::string test_string {"Hello world, Hello cpp!"};
+  std::vector<std::string> result{getUniqueWords(test_string)};
+  for (size_t i = 0; i < 3; ++i) {
+    if (result.at(i) == "hello") {
+    } else if (result.at(i) == "world") {
+    } else if (result.at(i) == "cpp") {
+    } else {
+      EXPECT_EQ("we have problem","");
+    }
+  }
+  EXPECT_EQ(result.size(), 3);
+}
+
+TEST(Test2, getUniqueWords) {
+  std::string test_string {"My. friend, ,IS! my FRIEND MY!"};
+  std::vector<std::string> result{getUniqueWords(test_string)};
+  for (size_t i = 0; i < 3; ++i) {
+    if (result.at(i) == "friend") {
+    } else if (result.at(i) == "is") {
+    } else if (result.at(i) == "my") {
+    } else {
+      EXPECT_EQ("we have problem","");
+    }
+  }
+  EXPECT_EQ(result.size(), 3);
+}
+
+TEST(Test3, getUniqueWords) {
+  std::string test_string {"Who is it??? It is joke."};
+  std::vector<std::string> result{getUniqueWords(test_string)};
+  for (size_t i = 0; i < 4; ++i) {
+    if (result.at(i) == "who") {
+    } else if (result.at(i) == "is") {
+    } else if (result.at(i) == "it") {
+    } else if (result.at(i) == "joke") {
+    } else {
+      EXPECT_EQ("we have problem","");
+    }
+  }
+  EXPECT_EQ(result.size(), 4);
+}
+
+TEST(Test4, getUniqueWords) {
+  std::string test_string {"Who is it? ...  It is joke."};
+  std::vector<std::string> result{getUniqueWords(test_string)};
+  for (size_t i = 0; i < 4; ++i) {
+    if (result.at(i) == "who") {
+    } else if (result.at(i) == "is") {
+    } else if (result.at(i) == "it") {
+    } else if (result.at(i) == "joke") {
+    } else {
+      EXPECT_EQ("we have problem","");
+    }
+  }
+  EXPECT_EQ(result.size(), 4);
+}
+
+TEST(Test5, getUniqueWords) {
+  std::string test_string {"  some   WORDS for  SOME words  FOR  some JoKe"};
+  std::vector<std::string> result{getUniqueWords(test_string)};
+  for (size_t i = 0; i < 3; ++i) {
+    if (result.at(i) == "some") {
+    } else if (result.at(i) == "words") {
+    } else if (result.at(i) == "for") {
+    } else if (result.at(i) == "joke") {
+    } else {
+      EXPECT_EQ("we have problem","");
+    }
+  }
+  EXPECT_EQ(result.size(), 4);
+}
+
+TEST(Test1, wordCounter) {
+  std::string test_string {"Hello world, Hello cpp!"};
   std::vector<std::pair<std::string, size_t>> result{wordCounter(test_string)};
   for (size_t i = 0; i < 3; ++i) {
     if (result.at(i).first == "hello") {
@@ -22,7 +95,7 @@ TEST(Test1, getUniqueWords) {
   EXPECT_EQ(result.size(), 3);
 }
 
-TEST(Test2, getUniqueWords) {
+TEST(Test2, wordCounter) {
   std::string test_string {"My. friend, ,IS! my FRIEND MY!"};
   std::vector<std::pair<std::string, size_t>> result{wordCounter(test_string)};
   for (size_t i = 0; i < 3; ++i) {
@@ -39,7 +112,7 @@ TEST(Test2, getUniqueWords) {
   EXPECT_EQ(result.size(), 3);
 }
 
-TEST(Test3, getUniqueWords) {
+TEST(Test3, wordCounter) {
   std::string test_string {"Who is it? It is joke."};
   std::vector<std::pair<std::string, size_t>> result{wordCounter(test_string)};
   for (size_t i = 0; i < 4; ++i) {
@@ -58,7 +131,7 @@ TEST(Test3, getUniqueWords) {
   EXPECT_EQ(result.size(), 4);
 }
 
-TEST(Test4, getUniqueWords) {
+TEST(Test4, wordCounter) {
   std::string test_string {"Who is it? ...  It is joke."};
   std::vector<std::pair<std::string, size_t>> result{wordCounter(test_string)};
   for (size_t i = 0; i < 4; ++i) {
@@ -77,7 +150,7 @@ TEST(Test4, getUniqueWords) {
   EXPECT_EQ(result.size(), 4);
 }
 
-TEST(Test5, getUniqueWords) {
+TEST(Test5, wordCounter) {
   std::string test_string {"  some   WORDS for  SOME words  FOR  some JoKe"};
   std::vector<std::pair<std::string, size_t>> result{wordCounter(test_string)};
   for (size_t i = 0; i < 3; ++i) {
