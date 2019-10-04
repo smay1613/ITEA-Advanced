@@ -41,6 +41,7 @@ bool bracketsCheck (std::stack<char> & stack_with_brackets) {
     }
 }
 
+
 bool isExpressionValid (const std::string & expression) {
   std::stack<char> expressionStack {};
   for (size_t i = 0; i < expression.size(); ++i) {

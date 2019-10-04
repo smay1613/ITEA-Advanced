@@ -25,6 +25,7 @@ else()
     add_executable(Task_1 Brackets_valid.cpp)
 endif()
 
+
 if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include"
             "${gmock_SOURCE_DIR}/include")

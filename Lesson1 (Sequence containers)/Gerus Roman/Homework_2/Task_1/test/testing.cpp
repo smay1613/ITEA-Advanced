@@ -21,6 +21,7 @@ TEST(magicNumberTest4, isExpressionValid) {
   EXPECT_EQ(isExpressionValid("{(([]))}"), true);
 }
 
+
 TEST(magicNumberTest5, isExpressionValid) {
   EXPECT_EQ(isExpressionValid("[[[((){)]]]"), false);
 }
