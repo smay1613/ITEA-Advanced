@@ -25,26 +25,20 @@ std::vector<std::string> getUniqueWords (const std::string& text)
     std::string modifiedText {text};
     modifiedText.erase(std::remove_if(modifiedText.begin(), modifiedText.end(), ispunct), modifiedText.end());
 
-    for(auto currentIt = modifiedText.begin(), lastWordStartIt = modifiedText.begin();
-        currentIt != modifiedText.end(); ++currentIt)
-    {
-        if (*currentIt == ' ' || (currentIt == modifiedText.end() - 1))
+    std::stringstream stream(modifiedText);
+    std::string token;
+    while(std::getline(stream, token, ' '))
         {
-            size_t position = std::distance(modifiedText.begin(), lastWordStartIt);
-            size_t letterCount = std::distance(lastWordStartIt, currentIt);
-
-            if(currentIt == modifiedText.end() - 1)
-            {
-                letterCount += 1;
-            }
-
-            uniqueWords.insert(modifiedText.substr(position, letterCount));
-
-            lastWordStartIt = currentIt + 1;
+            uniqueWords.insert(token);
         }
-    }
 
-    std::vector<std::string> wordsVector (uniqueWords.begin(), uniqueWords.end());
+    std::vector<std::string> wordsVector;
+    wordsVector.reserve(uniqueWords.size());
+
+    for(const auto& element : uniqueWords)
+    {
+        wordsVector.push_back(std::move(element));
+    }
 
     return  wordsVector;
 }
@@ -56,31 +50,25 @@ std::vector<std::pair<std::string, size_t>> wordCounter (const std::string& text
     std::string modifiedText {text};
     modifiedText.erase(std::remove_if(modifiedText.begin(), modifiedText.end(), ispunct), modifiedText.end());
 
-    for(auto currentIt = modifiedText.begin(), lastWordStartIt = modifiedText.begin();
-        currentIt != modifiedText.end(); ++currentIt)
-    {
-        if (*currentIt == ' ' || (currentIt == modifiedText.end() - 1))
+    std::stringstream stream(modifiedText);
+    std::string token;
+    while(std::getline(stream, token, ' '))
         {
-            size_t position = std::distance(modifiedText.begin(), lastWordStartIt);
-            size_t letterCount = std::distance(lastWordStartIt, currentIt);
-
-            if(currentIt == modifiedText.end() - 1)
-            {
-                letterCount += 1;
-            }
-
-            auto insertionCheck = uniqueWordsCounter.insert({modifiedText.substr(position, letterCount), 1});
+            auto insertionCheck = uniqueWordsCounter.insert({token,1});
 
             if(insertionCheck.second == false)
             {
                 insertionCheck.first->second += 1;
             }
-
-            lastWordStartIt = currentIt + 1;
         }
-    }
 
-    std::vector<std::pair<std::string, size_t>> wordsVector (uniqueWordsCounter.begin(), uniqueWordsCounter.end());
+    std::vector<std::pair<std::string, size_t>> wordsVector;
+    wordsVector.reserve(uniqueWordsCounter.size());
+
+    for(const auto& element : uniqueWordsCounter)
+    {
+        wordsVector.push_back(std::move(element));
+    }
 
     return  wordsVector;
 }
