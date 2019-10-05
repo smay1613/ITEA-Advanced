@@ -26,10 +26,11 @@ std::vector<std::string> getUniqueWords (const std::string& text)
     modifiedText.erase(std::remove_if(modifiedText.begin(), modifiedText.end(), ispunct), modifiedText.end());
 
     std::stringstream stream(modifiedText);
-    std::string token;
-    while(std::getline(stream, token, ' '))
+    std::string word;
+
+    while(std::getline(stream, word, ' '))
         {
-            uniqueWords.insert(token);
+            uniqueWords.insert(word);
         }
 
     std::vector<std::string> wordsVector;
@@ -51,10 +52,11 @@ std::vector<std::pair<std::string, size_t>> wordCounter (const std::string& text
     modifiedText.erase(std::remove_if(modifiedText.begin(), modifiedText.end(), ispunct), modifiedText.end());
 
     std::stringstream stream(modifiedText);
-    std::string token;
-    while(std::getline(stream, token, ' '))
+    std::string word;
+
+    while(std::getline(stream, word, ' '))
         {
-            auto insertionCheck = uniqueWordsCounter.insert({token,1});
+            auto insertionCheck = uniqueWordsCounter.insert({word,1});
 
             if(insertionCheck.second == false)
             {
