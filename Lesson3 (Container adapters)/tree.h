@@ -14,23 +14,20 @@ struct Node
     Node* next = nullptr;
     Node* parent = nullptr;
     int key;
-    void push(Node*& tree, int a, Node* z = nullptr);
+};
+
+class BinaryTreeWrapper
+{
+public:
+    void push(Node*& tree, int key, Node* parent = nullptr);
     void print(Node* tree);
     void pop(Node*& t, int key);
-    ParentandChild findMinRight(Node* t);
+    std::pair<Node*,Node*> findMinRight(Node* t);
     void linkSamelevel(Node*&);
     void find(Node *&parent, Node*& currentNode, int);
-
 };
 
-struct ParentandChild
-{
-    Node* parent;
-    Node* child;
-};
-
-
-class nodeIterator : public std::iterator<std::output_iterator_tag, int>
+class nodeIterator : public std::iterator<std::bidirectional_iterator_tag, int>
 {
 public:
     explicit nodeIterator(Node* container);
@@ -44,6 +41,8 @@ public:
 private:
     Node* container;
     Node* descent(int count, int count2, int inLoop, Node *&tree, Node *&copyTree);
+    int countNodes(Node *tree);
+
 };
 
 #endif // TREE_H

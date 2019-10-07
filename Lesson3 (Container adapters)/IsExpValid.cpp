@@ -1,17 +1,19 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <set>
 #include "IsExpValid.h"
 
 
 bool isExpressionValid (const std::string& expression)
 {
     std::stack<char> MyStack;
-    char popStack;
     bool result {true};
+    std::set<char> openBrack{'(', '{', '['};
     for(const auto& element : expression)
     {
-        if ((element == '[')||(element == '(')||(element =='{'))
+
+        if (openBrack.find(element) != openBrack.end())
         {
             MyStack.push(element);
         }
@@ -22,6 +24,7 @@ bool isExpressionValid (const std::string& expression)
                 result = false;
                 break;
             }
+            char popStack;
             popStack = MyStack.top();
             MyStack.pop();
 

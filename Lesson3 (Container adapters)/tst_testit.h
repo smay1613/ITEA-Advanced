@@ -8,6 +8,7 @@
 
 using namespace testing;
 
+
 TEST(Test_Iterator_Push_Pop, Test1)
 {
     Node* n1 = new Node;
@@ -43,14 +44,15 @@ TEST(Test_Iterator_Push_Pop, Test1)
     nodeIterator outpIt(n5);
 
 
+    BinaryTreeWrapper controlTree;
 
     Node* tree = nullptr;
-    tree->push(tree, 4);
-    tree->push(tree, 6);
-    tree->push(tree, 8);
-    tree->push(tree, 9);
-    tree->push(tree, 5);
-    tree->push(tree, 3);
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 6);
+    controlTree.push(tree, 8);
+    controlTree.push(tree, 9);
+    controlTree.push(tree, 5);
+    controlTree.push(tree, 3);
     nodeIterator it(tree);
     it = ++it;
     EXPECT_EQ(3, *it);
@@ -58,16 +60,16 @@ TEST(Test_Iterator_Push_Pop, Test1)
 
 TEST(Test_Iterator_Push, Test1)
 {
-
+    BinaryTreeWrapper controlTree;
     Node* tree = nullptr;
-    tree->push(tree, 4);
-    tree->push(tree, 5);
-    tree->push(tree, 7);
-    tree->push(tree, 10);
-    tree->push(tree, 6);
-    tree->push(tree, 3);
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 5);
+    controlTree.push(tree, 7);
+    controlTree.push(tree, 10);
+    controlTree.push(tree, 6);
+    controlTree.push(tree, 3);
     nodeIterator it(tree);
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 5; i++)
     {
         it = ++it;
     }
@@ -78,17 +80,30 @@ TEST(Test_Iterator_Push, Test1)
 
 TEST(Test_Iterator_Push_Pop, Test2)
 {
-
+    BinaryTreeWrapper controlTree;
     Node* tree = nullptr;
-    tree->push(tree, 4);
-    tree->push(tree, 5);
-    tree->push(tree, 7);
-    tree->push(tree, 10);
-    tree->pop(tree,5);
-    tree->push(tree, 6);
-    tree->push(tree, 3);
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 5);
+    controlTree.push(tree, 7);
+    controlTree.push(tree, 10);
+    controlTree.pop(tree,5);
+    controlTree.push(tree, 6);
+    controlTree.push(tree, 3);
     nodeIterator it(tree);
-    for(int i = 0; i < 3; i++)
+    it = ++it;
+    EXPECT_EQ(*it, 3);
+}
+
+TEST(Test_Iterator_Push_Pop, Test3)
+{
+    BinaryTreeWrapper controlTree;
+    Node* tree = nullptr;
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 10);
+    controlTree.pop(tree, 10);
+    controlTree.push(tree, 6);
+    nodeIterator it(tree);
+    for(int i = 0; i < 1; i++)
     {
         it = ++it;
     }
@@ -97,37 +112,19 @@ TEST(Test_Iterator_Push_Pop, Test2)
     EXPECT_EQ(*it, 6);
 }
 
-TEST(Test_Iterator_Push_Pop, Test3)
-{
-
-    Node* tree = nullptr;
-    tree->push(tree, 4);
-    tree->push(tree, 5);
-    tree->pop(tree, 5);
-    tree->push(tree, 10);
-    nodeIterator it(tree);
-    for(int i = 0; i < 2; i++)
-    {
-        it = ++it;
-    }
-
-
-    EXPECT_EQ(*it, 10);
-}
-
 TEST(Test_Iterator_Push_Pop, Test4)
 {
-
+    BinaryTreeWrapper controlTree;
     Node* tree = nullptr;
-    tree->push(tree, 3);
-    tree->push(tree, 6);
-    tree->push(tree, 2);
-    tree->push(tree, 5);
-    tree->push(tree, 4);
-    tree->push(tree, 7);
-    tree->push(tree, 8);
-    tree->push(tree, 10);
-    tree->pop(tree, 6);
+    controlTree.push(tree, 3);
+    controlTree.push(tree, 6);
+    controlTree.push(tree, 2);
+    controlTree.push(tree, 5);
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 7);
+    controlTree.push(tree, 8);
+    controlTree.push(tree, 10);
+    controlTree.pop(tree, 6);
 
 
     nodeIterator it(tree);
@@ -140,6 +137,27 @@ TEST(Test_Iterator_Push_Pop, Test4)
     EXPECT_EQ(*it, 7);
 }
 
+TEST(Test_Iterator_Push_Pop, Test5)
+{
+    BinaryTreeWrapper controlTree;
+    Node* tree = nullptr;
+    controlTree.push(tree, 4);
+    controlTree.push(tree, 5);
+    controlTree.push(tree, 7);
+    controlTree.push(tree, 10);
+    controlTree.push(tree, 3);
+    controlTree.push(tree, 6);
+
+
+    nodeIterator it(tree);
+    for(int i = 0; i < 5; i++)
+    {
+        it = ++it;
+    }
+
+
+    EXPECT_EQ(*it, 10);
+}
 
 TEST(IsExpressionValid, Test1)
 {

@@ -69,14 +69,29 @@ Node* nodeIterator::descent(int count, int count2, int inLoop, Node*& tree, Node
     return copyTree;
 }
 
+int nodeIterator::countNodes(Node *tree)
+{
+    if(tree == nullptr)
+    {
+        return 0;
+    }
+    int count = 1;
+    if (tree->left != nullptr) {
+       count += countNodes(tree->left);
+    }
+    if (tree->right != nullptr) {
+        count += countNodes(tree->right);
+    }
+    return count;
+}
+
+
 
 nodeIterator nodeIterator::operator++()
 {
     Node* tree = this->container;
     nodeIterator bIt(tree);
-
     nodeIterator beginIterator = bIt.begin();
-
     if(tree->next != nullptr)
     {
         nodeIterator it(tree->next);
@@ -109,27 +124,28 @@ nodeIterator nodeIterator::operator++()
     tree = beginIterator.container;
 
     copyTree=descent(count, count2, inLoop, tree, copyTree);
-
     nodeIterator it(copyTree);
+    if(*this == it)
+    {
+        return it.end();
+    }
     return it;
-
-
 }
 
-ParentandChild Node::findMinRight(Node* tree)
+std::pair<Node*,Node*> BinaryTreeWrapper::findMinRight(Node* tree)
 {
-    ParentandChild pch;
-    pch.child = tree;
-    pch.parent = nullptr;
-    while(pch.child->left != nullptr)
+    std::pair<Node*,Node*> pch;
+    pch.first = tree;
+    pch.second = nullptr;
+    while(pch.first->left != nullptr)
     {
-        pch.parent = pch.child;
-        pch.child= pch.child->left;
+        pch.second = pch.first;
+        pch.second= pch.second->left;
     }
     return pch;
 }
 
-void Node::find(Node *&parent, Node*& currNode, int key)
+void BinaryTreeWrapper::find(Node *&parent, Node*& currNode, int key)
 {
     while(currNode->key != key)
     {
@@ -143,17 +159,15 @@ void Node::find(Node *&parent, Node*& currNode, int key)
             parent = currNode;
             currNode = currNode->right;
         }
-
     }
 }
 
 
-void Node::pop(Node *&t, int key)
+void BinaryTreeWrapper::pop(Node *&t, int key)
 {
     Node* parent = nullptr;
     Node* currNode = t;
     find(parent,currNode,key);
-    std::cout << "df";
 
     if((currNode->right == nullptr)&&(currNode->left==nullptr))
     {
@@ -201,27 +215,23 @@ void Node::pop(Node *&t, int key)
     }
     if((currNode->left!=nullptr)&&(currNode->right!=nullptr))
     {
-        ParentandChild minNode = findMinRight(currNode->right);
-        currNode->key = minNode.child->key;
-        if(currNode->right == minNode.child)
+        std::pair<Node*, Node*> minNode = findMinRight(currNode->right);
+        currNode->key = minNode.first->key;
+        if(currNode->right == minNode.first)
         {
-            currNode->right = minNode.child->right;
+            currNode->right = minNode.first->right;
         }
         else
         {
-            minNode.parent->left = nullptr;
-            delete minNode.child;
+            minNode.second->left = nullptr;
+            delete minNode.first;
         }
-
-
     }
-    t->linkSamelevel(t);
-
-
+    linkSamelevel(t);
 }
 
 
-void Node::linkSamelevel(Node*& t)
+void BinaryTreeWrapper::linkSamelevel(Node*& t)
 {
     std::queue <Node*> q;
     q.push(t);
@@ -259,7 +269,7 @@ nodeIterator::nodeIterator(Node* container)
     this->container = container;
 }
 
-void Node::push(Node *&tree, int a, Node* parent)
+void BinaryTreeWrapper::push(Node *&tree, int a, Node* parent)
 {
     if(tree == nullptr)
     {
@@ -282,30 +292,28 @@ void Node::push(Node *&tree, int a, Node* parent)
             push(tree->right,a, tree);
         }
     }
-    tree->linkSamelevel(tree);
+    linkSamelevel(tree);
 }
 
-void Node::print(Node* tree)
+void BinaryTreeWrapper::print(Node* tree)
 {
     std::queue<Node*> qTree;
     qTree.push(tree);
-    Node* ptr = tree;
+    Node* currTree = tree;
     while(!qTree.empty())
     {
-        ptr = qTree.front();
+        currTree = qTree.front();
         qTree.pop();
-        std::cout << ptr->key << " ";
-        if(ptr->left!=nullptr)
+        std::cout << currTree->key << " ";
+        if(currTree->left!=nullptr)
         {
-          qTree.push(ptr->left);
+          qTree.push(currTree->left);
         }
-        if(ptr->right!=nullptr)
+        if(currTree->right!=nullptr)
         {
-          qTree.push(ptr->right);
+          qTree.push(currTree->right);
         }
-
     }
-
 }
 
 
