@@ -1,4 +1,4 @@
-#ifndef TST_TEST_H
+ #ifndef TST_TEST_H
 #define TST_TEST_H
 
 #include <gtest/gtest.h>
@@ -16,35 +16,39 @@ TEST(getUniqueWords, Test1)
     std::string InpStr {"hi Hi   *h Lol"};
     std::vector<std::string> OutVector{"hi", "h", "lol"};
     std::vector<std::string> vectFromFunk = getUniqueWords(InpStr);
-    EXPECT_EQ(OutVector, getUniqueWords(InpStr));
+    EXPECT_EQ(true, std::is_permutation(OutVector.begin(), OutVector.end(), vectFromFunk.begin()));
 }
 
 TEST(getUniqueWords, Test2)
 {
     std::string InpStr {" "};
     std::vector<std::string> OutVector{};
-    EXPECT_EQ(OutVector, getUniqueWords(InpStr));
+    std::vector<std::string> vectFromFunk = getUniqueWords(InpStr);
+    EXPECT_EQ(true, std::is_permutation(OutVector.begin(), OutVector.end(), vectFromFunk.begin()));
 }
 
 TEST(getUniqueWords, Test3)
 {
     std::string InpStr {"//////*0 i"};
     std::vector<std::string> OutVector{"0" , "i"};
-    EXPECT_EQ(OutVector, getUniqueWords(InpStr));
+    std::vector<std::string> vectFromFunk = getUniqueWords(InpStr);
+    EXPECT_EQ(true, std::is_permutation(OutVector.begin(), OutVector.end(), vectFromFunk.begin()));
 }
 
 TEST(getUniqueWords, Test4)
 {
     std::string InpStr {"b B    * b"};
     std::vector<std::string> OutVector{"b"};
-    EXPECT_EQ(OutVector, getUniqueWords(InpStr));
+    std::vector<std::string> vectFromFunk = getUniqueWords(InpStr);
+    EXPECT_EQ(true, std::is_permutation(OutVector.begin(), OutVector.end(), vectFromFunk.begin()));;
 }
 
 TEST(getUniqueWords, Test5)
 {
     std::string InpStr {"*)(*^  /)"};
     std::vector<std::string> OutVector{};
-    EXPECT_EQ(OutVector, getUniqueWords(InpStr));
+    std::vector<std::string> vectFromFunk = getUniqueWords(InpStr);
+    EXPECT_EQ(true, std::is_permutation(OutVector.begin(), OutVector.end(), vectFromFunk.begin()));
 }
 
 TEST(wordCounter, Test1)
