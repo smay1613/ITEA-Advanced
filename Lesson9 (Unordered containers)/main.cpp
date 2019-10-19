@@ -59,7 +59,7 @@ checkAllFiles(const std::vector<fs::path>& filesVector)
 struct isRegularFIle{
     bool operator()(const fs::path& file_path)
     {
-        return fs::is_regular_file(file_path) && (file_path.extension() == ".txt" || file_path.extension() == ".bin");
+        return fs::is_regular_file(file_path);
     }
 };
 
