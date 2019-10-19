@@ -21,7 +21,7 @@ struct hashFunc{
     size_t operator()(const std::string& key) const
     {
         std::ifstream file(key, std::ifstream::binary);
-        std::vector<char> fileVector;
+        std::vector<char> fileContent;
 
         if(file.is_open() == false || file.fail() == true)
         {
@@ -30,9 +30,9 @@ struct hashFunc{
 
         std::copy(std::istreambuf_iterator<char>(file),
                   std::istreambuf_iterator<char>(),
-                  std::back_inserter(fileVector));
+                  std::back_inserter(fileContent));
 
-        xxh::hash_t<32> hash = xxh::xxhash<32>(fileVector);
+        xxh::hash_t<32> hash = xxh::xxhash<32>(fileContent);
 
         return hash;
     }
