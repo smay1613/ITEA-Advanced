@@ -6,38 +6,42 @@
 #include <experimental/filesystem>
 #include <algorithm>
 
+#include "xxhash.hpp"
+
 namespace fs = std::experimental::filesystem;
 
-struct compareTwoFiles{
+struct compareTwoKeys{
     bool operator()(const std::string& lhs, const std::string& rhs) const
     {
-        std::ifstream lhsFile(lhs, std::ifstream::binary);
-        std::ifstream rhsFile(rhs, std::ifstream::binary);
-
-        if(lhsFile.is_open() == false  || rhsFile.is_open() == false)
-        {
-            return false;
-        }
-
-        return  std::equal(std::istream_iterator<std::string>(lhsFile),
-                           std::istream_iterator<std::string>(),
-                           std::istream_iterator<std::string>(rhsFile));
+        return lhs != rhs;
     }
 };
 
 struct hashFunc{
     size_t operator()(const std::string& key) const
     {
-        size_t hash {0};
+        std::ifstream file(key, std::ifstream::binary);
+        std::vector<char> fileVector;
+
+        if(file.is_open() == false || file.fail() == true)
+        {
+            return false;
+        }
+
+        std::copy(std::istreambuf_iterator<char>(file),
+                  std::istreambuf_iterator<char>(),
+                  std::back_inserter(fileVector));
+
+        xxh::hash_t<32> hash = xxh::xxhash<32>(fileVector);
 
         return hash;
     }
 };
 
-std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoFiles>
+std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys>
 checkAllFiles(const std::vector<fs::path>& filesVector)
 {
-    std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoFiles> map;
+    std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys> map;
 
     for(const auto& element : filesVector)
     {
@@ -55,27 +59,27 @@ checkAllFiles(const std::vector<fs::path>& filesVector)
 struct isRegularFIle{
     bool operator()(const fs::path& file_path)
     {
-        return fs::is_regular_file(file_path);
+        return fs::is_regular_file(file_path) && (file_path.extension() == ".txt" || file_path.extension() == ".bin");
     }
 };
 
 std::vector<fs::path> findAllFiles(const std::string& absPath)
 {
     std::vector<fs::path> directories {absPath};
-    std::vector<fs::path> txtFiles;
+    std::vector<fs::path> Files;
 
     for(const auto& directory : directories)
     {
         fs::recursive_directory_iterator begin{directory};
         fs::recursive_directory_iterator end{};
 
-        std::copy_if(begin, end, std::back_inserter(txtFiles), isRegularFIle());
+        std::copy_if(begin, end, std::back_inserter(Files), isRegularFIle());
     }
 
-    return txtFiles;
+    return Files;
 }
 
-void printAllFiles(const std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoFiles>& map)
+void printAllFiles(const std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys>& map)
 {
     std::cout << "==========" << std::endl;
 
