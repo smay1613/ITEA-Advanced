@@ -10,6 +10,14 @@
 #include <map>
 
 
+class myString : public std::string
+{
+public:
+    friend std::stringstream& operator>>(std::stringstream& input, std::string& output);
+    size_t myHash(std::string inputString);
+
+};
+
 class Key_Equal_my
 {
 public:
