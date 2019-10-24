@@ -10,20 +10,13 @@
 
 namespace fs = std::experimental::filesystem;
 
-struct compareTwoKeys{
-    bool operator()(const std::string& lhs, const std::string& rhs) const
-    {
-        return lhs != rhs;
-    }
-};
-
 struct hashFunc{
     size_t operator()(const std::string& key) const
     {
         std::ifstream file(key, std::ifstream::binary);
         std::vector<char> fileContent;
 
-        if(file.is_open() == false || file.fail() == true)
+        if(!file.is_open() || file.fail())
         {
             return false;
         }
@@ -38,16 +31,16 @@ struct hashFunc{
     }
 };
 
-std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys>
+std::unordered_map<std::string, std::vector<std::string>, hashFunc, std::not_equal_to<std::string>>
 checkAllFiles(const std::vector<fs::path>& filesVector)
 {
-    std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys> map;
+    std::unordered_map<std::string, std::vector<std::string>, hashFunc, std::not_equal_to<std::string>> map;
 
     for(const auto& element : filesVector)
     {
         std::vector<std::string> a {element};
         auto it = map.insert({element, a});
-        if(it.second == false)
+        if(!it.second)
         {
             it.first->second.push_back(element);
         }
@@ -79,7 +72,7 @@ std::vector<fs::path> findAllFiles(const std::string& absPath)
     return Files;
 }
 
-void printAllFiles(const std::unordered_map<std::string, std::vector<std::string>, hashFunc, compareTwoKeys>& map)
+void printAllFiles(const std::unordered_map<std::string, std::vector<std::string>, hashFunc, std::not_equal_to<std::string>>& map)
 {
     std::cout << "==========" << std::endl;
 
